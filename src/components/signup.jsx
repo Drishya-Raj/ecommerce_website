@@ -48,8 +48,6 @@ const SignUp = () => {
         dispatch(setUsername(username));
         dispatch(setEmailId(email));
         dispatch(setPassword(password))
-
-
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;

@@ -1,5 +1,5 @@
 import * as images from './images';
-import { useState } from 'react';
+import React, {useMemo} from 'react';
 import { Link } from 'react-router-dom';
 import { useFavorite } from './favoriteContext';
 import { useContext } from 'react';
@@ -9,13 +9,17 @@ import EmptyCart from './EmptyCart';
 
 const CartItems = () => {
     const { addedItems, setAddedItems } = useContext(cartContext);
+    useMemo(() => {
+        localStorage.setItem("addedItems", JSON.stringify(addedItems));
+      }, [addedItems]);
+
+
     // const [save , setSave] = useState(false);
    
     const removeItem = (id) => {
         const updatedItems = addedItems.filter((item) => item.id !== id);
         console.log("updatee", updatedItems);
         setAddedItems(updatedItems);
-       
     };
     // const saveItem = (id) => {
     //   const saveditem =  addedItems.filter((item) => item.id === id);

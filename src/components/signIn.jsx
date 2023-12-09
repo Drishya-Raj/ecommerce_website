@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, json, useNavigate } from 'react-router-dom';
 import { Alert } from './Alert';
 import Button from './button';
 import TextInput from './textInput';
@@ -32,13 +32,13 @@ const SignIn = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 navigate('/home');
-                dispatch(loginUser(email, password, true));
+                dispatch(loginUser(true));
                 console.log(user);
             })
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage);
-                dispatch(loginUser(email, password, false));
+                dispatch(loginUser(false));
                 setShowAlert(true);
             });
     };

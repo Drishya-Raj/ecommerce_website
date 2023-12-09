@@ -1,24 +1,32 @@
+import { ADD_EMAIL, ADD_PASSWORD, ADD_TO_CART, ADD_USER, LOGIN_USER } from "./actionTypes";
+
 export const setUsername = (username) => {
     return{
-        type : 'ADD_USER',
+        type : ADD_USER,
         payload : username,
     };
     
 }
 export const setEmailId =  (email) =>{
     return {
-        type : 'ADD_EMAIL',
+        type : ADD_EMAIL,
         payload : email
     };
 }
 
 export const setPassword = (password) =>{
     return{
-        type : 'ADD_PASSWORD',
+        type : ADD_PASSWORD,
         payload : password
     }
 }
 export const loginUser = (isAuthenticated) => ({
-    type: 'LOGIN_USER',
+    type: LOGIN_USER,
     payload: isAuthenticated
   });
+
+export const setAddedItems = (addedItems) =>({
+    type: ADD_TO_CART,
+    payload :addedItems
+})
+ 

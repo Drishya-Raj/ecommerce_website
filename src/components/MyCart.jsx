@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState , useEffect} from "react";
 import CartItems from "./cartItems";
 import CheckOut from "./checkout";
 import Navbar5 from "./navbar5";
@@ -10,7 +10,6 @@ import { DeliveryItems } from "./constants/renderItems";
 export const cartContext = createContext();
 
 const MyCart = () => {
-
     const [buttontext, setButtontext] = useState(save);
     const [addedItems, setAddedItems] = useState([]);
 
@@ -23,15 +22,16 @@ const MyCart = () => {
         if (!addedItems.some((item) => item.id === newItem.id)) {
             setAddedItems((prevItems) => [...prevItems, newItem]);
             console.log("adddddddddddddd", addedItems);
+            localStorage.setItem("addedItems", JSON.stringify(addedItems));
         }
     
         updatedBtext.find(item => item.id === newItem.id).button =
         updatedBtext.find(item => item.id === newItem.id).button === "Move to cart" ? "Added" : "Move to cart";
         
         setButtontext(updatedBtext);
+        
     };
     
-
     console.log("addedItems", addedItems);
 
 

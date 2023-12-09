@@ -27,7 +27,7 @@ const Router = () => {
                 <Navbar />
                 <Hamburger />
                 <Routes>
-                    {isAuthenticated ?
+                    {!isAuthenticated ?
                         (<Route path='*' element={<Navigate to='/404' />} />
                         ) :
                         (<>
