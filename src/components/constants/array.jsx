@@ -632,3 +632,56 @@ export const navItems = [
     { id: 3, imgSrc: images?.orders, text: 'Orders' },
     { id: 4, to: '/myCart', imgSrc: images?.cart, text: 'My Cart' },
 ];
+export const state = [
+    {
+        id:1,
+        state:"Kerala"
+    },
+    {
+        id:2,
+        state:"Karnataka"
+    },
+    {
+        id:3,
+        state: "Tamil nadu"
+    },
+    {
+        id:4,
+        state:"Andhra Pradesh"
+    }
+    , {
+        id:5,
+        state:"Goa"
+    },
+    {
+        id:6,
+        state:"Maharastra"
+    }
+]
+export const inputs = [
+    {
+        id: 1,
+        placeholder: "Enter first name",
+        type: "text",
+        className: "input"
+    },
+    {
+        id: 2,
+        placeholder: "enter last name",
+        type: "text",
+        className: "input"
+    },
+    {
+        id: 3,
+        placeholder: "Enter mobile number",
+        type: "text",
+        className: "input"
+    },
+    {
+        id: 4,
+        placeholder: "Enter email address",
+        type: "email",
+        className: "input"
+    },
+]
+

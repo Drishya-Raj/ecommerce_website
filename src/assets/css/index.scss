@@ -105,18 +105,21 @@ a {
         font-size: 20px;
         box-shadow: 1px 1px 2px rgb(23, 18, 18);
 
-        .input, .inputpwd {
+        .input,
+        .inputpwd {
             border: 1px solid #DEE2E7;
             padding: 10px;
             border-radius: 6px;
             width: 100%;
 
         }
-        .inputpwd{
+
+        .inputpwd {
             position: relative;
-           
+
         }
-        .material-symbols-outlined{
+
+        .material-symbols-outlined {
             position: absolute;
             right: px;
         }
@@ -2844,11 +2847,12 @@ footer {
             border: none;
         }
     }
-    .countdowns{
-        .timer{
-flex-wrap: wrap;
+
+    .countdowns {
+        .timer {
+            flex-wrap: wrap;
         }
-        
+
     }
 
     .items {
@@ -2967,9 +2971,9 @@ flex-wrap: wrap;
     .listview {
         .flex {
             .column-flex {
-                .filter {
-                    // display: none;
-                }
+                // .filter {
+                //     // display: none;
+                // }
 
                 .listviewcontent {
                     ul {
@@ -4771,7 +4775,7 @@ flex-wrap: wrap;
     font-size: 20px;
     color: black;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 10% 0;
 
     .back-to-login {
         background: $primary_color;
@@ -4781,4 +4785,75 @@ flex-wrap: wrap;
         border-radius: 6px;
     }
 
+}
+
+//payment
+.payment {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #eaedf1;
+    padding: 30px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    background: #dffdff;
+    margin: 10%;
+
+    h2 {
+        margin-bottom: 30px;
+    }
+
+    .details {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: auto auto;
+        column-gap: 20px;
+        row-gap: 20px;
+
+
+        .input {
+            border: 1px solid #DEE2E7;
+            padding: 10px;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 15px;
+        }
+
+        textarea {
+            border: 1px solid #DEE2E7;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        select{
+            color: #888484;
+            option {
+                padding-bottom: 15px;
+                 font-size: 15px;
+             }
+        }
+        input{
+          &::-webkit-inner-spin-button,
+          ::-webkit-outer-spin-button{
+            -webkit-appearance: none;
+          }
+        }
+
+    }
+    .place-order{
+        background-color:#127FFF;
+        color:white;
+        padding: 10px 12px;
+        align-self: flex-end;
+        border-radius: 6px;
+        width:30%;
+        font-size: 16px;
+
+        &:hover{
+            opacity: 0.5;
+        }
+     }
 }

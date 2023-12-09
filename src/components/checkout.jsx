@@ -1,8 +1,9 @@
 import { imagess } from "./constants/array";
 import Button from "./button";
+import {Link } from "react-router-dom";
 
 const CheckOut = () => {
- 
+
     return (
         <div className="checkout">
             <ul>
@@ -23,7 +24,9 @@ const CheckOut = () => {
                 <h4>Total</h4>
                 <h4>$1357.97</h4>
             </div>
-            <Button className="checkoutbutton" value="CheckOut"/>
+            <Link to="/payment">
+                <Button className="checkoutbutton" value="CheckOut" />
+            </Link>
             <div className="container">
 
                 {imagess?.map((item) => (

@@ -16,6 +16,7 @@ import Footer from './components/footer';
 import Notfound from './components/Notfound';
 import Hamburger from './components/hamburger';
 import { useSelector } from 'react-redux';
+import Payment from './components/payment';
 
 const Router = () => {
     const isAuthenticated = useSelector((state) => state.isAuthenticated);
@@ -48,6 +49,7 @@ const Router = () => {
                     <Route path='/signIn' element={<SignIn />} />
                     <Route path='/' element={<SignUp />} />
                     <Route path='/404' element={<Notfound />} />
+                    <Route path="/payment" element={<Payment />} />
                     
                 </Routes>
                 
