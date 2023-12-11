@@ -21,6 +21,243 @@ export const checklist = [
         text: ' Some great feature name here'
     }
 ]
+export  const cart = [
+    {
+        id:1,
+        text: 'Soft chairs',
+        price: 'From USD 19',
+        image: images?.chair
+    },
+    {
+        id:2,
+        text: 'Sofa & chair',
+        price: 'From USD 19',
+        image: images?.lamp
+    },
+    {
+        id:3,
+        text: 'Kitchen dishes',
+        price: 'From USD 19',
+        image: images?.kitchen
+    },
+    {
+        id:4,
+        text: 'Smart Watches',
+        price : 'From USD 19',
+        image : images?.pot
+    },
+    
+    {
+        id:5,
+        text: 'Kitchen Mixer',
+        price: 'From USD 100',
+        image: images?.juicer
+    },
+    {
+        id:6,
+        text: 'Blenders',
+        price: 'From USD 39',
+        image: images?.juicer2
+    },
+    {
+        id:7,
+        text: 'Home appliance',
+        price: 'From USD 19',
+        image: images?.appliance
+    },
+    {
+        id:8,
+        text :'Coffecmaker',
+        price : 'From USD 10',
+        image : images?.plant
+
+    }
+];
+export 
+const itemsofSix = [
+    {
+        id:1,
+        image: images?.tshirt,
+        price: '$10.30',
+        text: 'T-shirts with multiple colors, for men'
+    },
+    {
+        id:2,
+        image: images?.suite,
+        price: '$10.30',
+        text: 'Jeans shorts for men'
+    },
+    {
+        id:3,
+        image: images?.coat,
+        price: '$12.50',
+        text: 'Brown winter coat'
+    },
+    {
+        id:4,
+        image: images?.mensWallet,
+        price: '$30.00',
+        text: 'Jeans bag for travel for men'
+    },
+    {
+        id:5,
+        image: images?.bag,
+        price: '$99.0',
+        text: 'Leather wallet'
+    },
+    {
+        id:6,
+        image: images?.trousers,
+        price: '$9.99',
+        text: 'Canon camera black, 100x zoom'
+    },
+    {
+        id:7,
+        image: images?.whiteheadsets,
+        price: '$8.99',
+        text: 'Headset for gaming with mic'
+    },
+    {
+        id:8,
+        image: images?.bag,
+        price: '$10.30',
+        text: 'Smartwatch silver color modern'
+
+    },
+    {
+        id:9,
+        image: images?.pot,
+        price: '$10.5',
+        text: 'Blue wallet for men leather metarfial'
+    },
+    {
+        id:10,
+        image: images?.jug,
+        price: '$80.95',
+        text: 'Jeans bag for travel for men',
+        link:"/productDetails"
+    }
+]
+export const service = [
+    {
+        id:1,
+        image1: images?.industry,
+        image2: images?.search,
+        text: 'Source from Industry Hubs'
+    },
+    {
+        id:2,
+        image1: images?.rainbow,
+        image2: images?.bucket,
+        text: 'Customize Your Products'
+    },
+    {
+        id:3,
+        image1: images?.aeroplane,
+        image2: images?.send,
+        text: 'Fast, reliable shipping by ocean or air'
+    },
+    {
+        id:4,
+        image1:images?. workers,
+        image2: images?.security,
+        text: 'Product monitoring and inspection'
+    }
+]
+
+export const itemImages= [
+    {
+        id:1,
+        text: 'Smart Watches',
+        price: 'From USD 19',
+        image: images?.smartwatch
+    },
+    {
+        id:2,
+        text: 'Camera',
+        price: 'From USD 89',
+        image: images?.cameras
+    },
+    {
+        id:3,
+        text: 'HeadPhones',
+        price: 'From USD 10',
+        image: images?.headphone
+    },
+    {
+        id:4,
+        text: 'Smart Watches',
+        price: 'From USD 90',
+        image: images?.jug
+    },
+
+    {
+        id:5,
+        text: 'Gaming set',
+        price: 'From USD 35',
+        image: images?.headset
+    },
+    {
+        id:6,
+        text: 'Laptops & PC',
+        price: 'From USD 340',
+        image: images?.laptop
+    },
+    {
+        id:7,
+        text: 'Smartphones',
+        price: 'From USD 19',
+        image: images?.smartphone
+    },
+    {
+        id:8,
+        text: 'Electric kattle',
+        price: 'From USD240',
+        image: images?.mobphone
+
+    }
+];
+
+export const deals = [
+    {
+        id: 1,
+        image: images?.watch,
+        text: 'Smart Watches',
+        btext: '-25%',
+        to:'/mobdetails'
+
+    },
+    {
+        id: 2,
+        image: images?.laptop,
+        text: 'Laptops',
+        btext: '-15%',
+        to:'/mobdetails'
+    },
+    {
+        id: 3,
+        image: images?.camera,
+        text: 'GoPro cameras',
+        btext: '-40%',
+        to:'/mobdetails'
+    },
+    {
+        id: 4,
+        image: images?.headset,
+        text: 'HeadPhones',
+        btext: '-25%',
+        to:'/mobdetails'
+    },
+    {
+        id: 5,
+        image: images?.mobile,
+        text: 'Canon cameras',
+        btext: '-25%',
+        to:'/mobdetails'
+    }
+
+]
+
 export const delivery = [
     {
         id: 1,
@@ -668,32 +905,7 @@ export const state = [
         state: "Maharastra"
     }
 ]
-export const inputs = [
-    {
-        id: 1,
-        placeholder: "Enter first name",
-        type: "text",
-        className: "input"
-    },
-    {
-        id: 2,
-        placeholder: "enter last name",
-        type: "text",
-        className: "input"
-    },
-    {
-        id: 3,
-        placeholder: "Enter mobile number",
-        type: "number",
-        className: "input"
-    },
-    {
-        id: 4,
-        placeholder: "Enter email address",
-        type: "email",
-        className: "input"
-    },
-]
+
 export const creditcard = [
     {
         id: 1,

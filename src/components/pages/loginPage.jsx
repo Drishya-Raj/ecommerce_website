@@ -1,10 +1,10 @@
 import React,{ useEffect, useState } from "react";
-import Button from "./button";
-import user from '../assets/images/user.png';
+import Button from "../button";
 import { useSelector, useDispatch } from 'react-redux';
-import { setUsername } from '../Redux/action';
+import { setUsername } from '../../Redux/action';
 import { useNavigate } from "react-router";
-import { Alert } from "./Alert";
+import * as images from '../images';
+import { Alert } from "../modal/Alert";
 
 const LoginPage = () => {
     const username = useSelector((state) => state.username);
@@ -32,7 +32,7 @@ const LoginPage = () => {
             {showAlert && <Alert message={{ maincolor: 'green', text: alert }} />}
             <div className="flex-container">
                 <div className="imgContainer">
-                    <img src={user} alt="profile" />
+                    <img src={images?.user} alt="profile" />
                 </div>
                 <p>Hi <b>{username},</b> <br />Let's get started.</p>
             </div>

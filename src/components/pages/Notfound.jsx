@@ -1,7 +1,7 @@
 import React from 'react'
-import Button from './button';
+import Button from '../button';
 import {Link } from 'react-router-dom';
-import * as images from './images';
+import * as images from '../images';
 
 function Notfound() {
   return (

@@ -1,21 +1,19 @@
-import Navbar2 from "./navBar2";
-import SectionSix from "./sectionSix";
-import SectionFour from "./sectionFour";
-import Services from "./services";
-import BannerPart from "./bannerpart";
+import Navbar2 from "../navBar2";
+import SectionSix from "../sectionSix";
+import SectionFour from "../sectionFour";
+import Services from "../services";
+import BannerPart from "../bannerpart";
 import LoginPage from "./loginPage";
-import Button from "./button";
-import banner from '../assets/images/banner.png';
-import { flag } from "./constants/array";
-import TextInput from "./textInput";
+import Button from "../button";
+
+import { flag } from "../constants/array";
+import TextInput from "../textInput";
 import { Link } from 'react-router-dom';
-import { deals } from "./sectionSale";
-import { cart } from "./sectionThree";
-import * as images from './images';
-import { sidebarList } from "./constants/array";
-import { timer } from "./constants/array";
-import Navbar from "./navbar";
-import Footer from "./footer";
+import { deals } from "../constants/array";
+import { cart } from "../constants/array";
+import * as images from '../images';
+import { sidebarList } from "../constants/array";
+import { timer } from "../constants/array";
 
 const Main = () => {
 
@@ -33,7 +31,7 @@ const Main = () => {
 
         <div className="mask">
           <div className="bimg">
-            <img src={banner} alt="images" /></div>
+            <img src={images?.banner} alt="images" /></div>
           <div className="maskinner">
             <p>Latest Trending </p>
             <h1>Electronic Items</h1>

@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import { setEmailId, setPassword, setUsername } from "../Redux/action";
+import { setEmailId, setPassword, setUsername } from "../../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import TextInput from "./textInput";
-import { loginUser } from "../Redux/action";
-import { Alert } from "./Alert";
-import { view, hide } from "./images";
-
+import TextInput from "../textInput";
+import { loginUser } from "../../Redux/action";
+import { Alert } from "../modal/Alert";
 
 const SignUp = () => {
     const loginuser = useSelector((state) => state.isAuthenticated);
@@ -64,10 +62,12 @@ const SignUp = () => {
                 setError("Email is already in use. Please use a different email.");
                 { showAlert ? (setShowAlert(false)) : setShowAlert(true) }
                 dispatch(loginUser(email, password, false));
-            } else {
-                console.error("Error creating user:", errorCode, errorMessage);
-                dispatch(loginUser(email, password, false));
-            }
+                
+            } 
+            // else {
+            //     console.error("Error creating user:", errorCode, errorMessage);
+            //     dispatch(loginUser(email, password, false));
+            // }
         }
     }
     const validateUsername = () => {
@@ -118,8 +118,8 @@ const SignUp = () => {
         },
         {
             id: 3,
-            // type: visible === 'visibility' ? "text" : "password",
-            type: "password",
+            type: visible === 'visibility' ? "text" : "password",
+            // type: "password",
             placeholder: "Enter password",
             value: password,
             onChange: (e) => setPasswords(e.target.value),
@@ -127,10 +127,15 @@ const SignUp = () => {
             onInput: validatePassword,
             alert: passwordAlert,
             onClick: onVisibility,
-            icon: visible
         },
         {
-            id: 4,
+            id:4,
+            type:"checkbox",
+            label: "Show Password"
+
+        },
+        {
+            id: 5,
             type: "submit",
             value: "sign up",
             onClick: handleClick,
@@ -158,7 +163,7 @@ const SignUp = () => {
                             onClick={item.onClick}
                             onInput={item.onInput}
                         /> <br />
-                        {/* <span className="material-symbols-outlined">{item.icon}</span> */}
+                        <span className="material-symbols-outlined">{item.icon}</span>
                         <span className="error" style={{ color: item.alert ? 'red' : 'green' }}>
                             {item.alert}
                         </span>

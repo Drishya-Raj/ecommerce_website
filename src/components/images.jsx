@@ -12,6 +12,7 @@ import dot from '../assets/images/Dot.png';
 import dot2 from '../assets/images/Dot.png';
 import fav from '../assets/images/favorite_border.png';
 import user from '../assets/images/user.png';
+
 import tshirts from '../assets/images/image 34.png';
 import image35 from '../assets/images/image 35.png';
 import image36 from '../assets/images/image 36.png';
@@ -95,13 +96,25 @@ import orangered from '../assets/images/orangered.png';
 import paypal from '../assets/images/paypal.png';
 import visa from '../assets/images/visa.png';
 import ipay from '../assets/images/ipay.png';
+import bg1 from '../assets/images/pinkmob-bg.png';
+import smartwatch from '../assets/images/watch.png';
+import cameras from '../assets/images/camera.png';
+import headphone from '../assets/images/whiteheadPhones.png';
+import mobphone from '../assets/images/1.png';
+import banner from '../assets/images/banner.png';
 
 export {
   arrow,
   notfound,
   orangered,
+  banner,
   payment,
   paypal,
+  bg1,
+  smartwatch,
+  cameras,
+  headphone,
+  mobphone,
   visa,
   ipay,
   cart,

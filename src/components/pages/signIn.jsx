@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 import { Link, json, useNavigate } from 'react-router-dom';
-import { Alert } from './Alert';
-import Button from './button';
-import TextInput from './textInput';
-import { loginUser } from '../Redux/action';
+import { Alert } from '../modal/Alert';
+import Button from '../button';
+import TextInput from '../textInput';
+import { loginUser } from '../../Redux/action';
 import { useDispatch, useSelector } from 'react-redux';
 
 const SignIn = () => {

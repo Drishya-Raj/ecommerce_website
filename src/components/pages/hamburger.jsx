@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import * as images from './images';
+import * as images from '../images';
 import { Link } from 'react-router-dom';
 
 
@@ -8,9 +8,9 @@ function Hamburger() {
 
     return (
         <div className='hamburger'>
-            <div className='container'>
+            {/* <div className='container'>
                 <img src={images?.logo} alt="logo" />
-            </div>
+            </div> */}
             <input type="checkbox" id="check" />
             {open ?
                 (<div className='hamburgercontent'>

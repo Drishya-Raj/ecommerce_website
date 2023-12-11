@@ -1,10 +1,10 @@
-import * as images from './images';
-import { supplier } from './constants/array';
-import Button from './button';
-import { priceDetails } from './constants/array';
-import { tableDetails } from './constants/array';
-import { reviews } from './constants/array';
-import { imageItems } from './constants/array';
+import * as images from '../images';
+import { supplier } from '../constants/array';
+import Button from '../button';
+import { priceDetails } from '../constants/array';
+import { tableDetails } from '../constants/array';
+import { reviews } from '../constants/array';
+import { imageItems } from '../constants/array';
 
  const MensClothing = () =>{
     return(

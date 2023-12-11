@@ -1,22 +1,22 @@
-import { BrowserRouter, Route, Routes, Redirect, Navigate, useNavigate, Link } from 'react-router-dom';
-import Main from './components/Home';
-import ProductDetails from './components/productDetails';
-import MobDetails from './components/mobileDetails';
-import ListView from './components/ListView';
-import MyCart from './components/MyCart';
-import SignUp from './components/signup';
-import { Provider, useDispatch } from 'react-redux';
+import { BrowserRouter, Route, Routes, Navigate, } from 'react-router-dom';
+import Main from './components/pages/Home';
+import ProductDetails from './components/pages/productDetails';
+import MobDetails from './components/pages/mobileDetails';
+import ListView from './components/pages/ListView';
+import MyCart from './components/pages/MyCart';
+import SignUp from './components/pages/signup';
+import { Provider} from 'react-redux';
 import store from './Redux/store';
-import LoginPage from './components/loginPage';
+import LoginPage from './components/pages/loginPage';
 import SectionSix from './components/sectionSix';
-import MensClothing from './components/mensClothing';
-import SignIn from './components/signIn';
+import MensClothing from './components/pages/mensClothing';
+import SignIn from './components/pages/signIn';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
-import Notfound from './components/Notfound';
-import Hamburger from './components/hamburger';
+import Notfound from './components/pages/Notfound';
+import Hamburger from './components/pages/hamburger';
 import { useSelector } from 'react-redux';
-import Payment from './components/payment';
+import Payment from './components/pages/payment';
 
 const Router = () => {
     const isAuthenticated = useSelector((state) => state.isAuthenticated);

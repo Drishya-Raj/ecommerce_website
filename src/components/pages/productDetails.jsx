@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar2 from "./navBar2";
-import RelatedProducts from "./constants/renderItems";
-import Seven from "./sectionSeven";
-import Button from "./button";
+import Navbar2 from "../navBar2";
+import RelatedProducts from "../constants/renderItems";
+import Seven from "../sectionSeven";
+import Button from "../button";
 import MensClothing from "./mensClothing";
-import ProductDescription from "./ProductDecsription";
+import ProductDescription from "../ProductDecsription";
 
 const ProductDetails = () => {
 

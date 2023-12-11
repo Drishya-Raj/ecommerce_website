@@ -1,9 +1,8 @@
 import * as images from './images';
 import React, {useMemo} from 'react';
 import { Link } from 'react-router-dom';
-import { useFavorite } from './favoriteContext';
 import { useContext } from 'react';
-import { cartContext } from './MyCart';
+import { cartContext } from './pages/MyCart';
 import Button from './button';
 import EmptyCart from './EmptyCart';
 
