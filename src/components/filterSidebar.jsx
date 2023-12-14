@@ -9,9 +9,10 @@ export const FilterSidebar = ({ title, className, options, selectedOptions, onOp
     return (
         <div>
             <div className="floats">
-                <h3 onClick={handleToggle}>
-                    {title} <span>{isOpen ? <i className="fa-solid fa-angle-up"></i> : <i className="fa-solid fa-angle-down"></i>}</span>
-                </h3>
+                <div className="floats1">
+                    <h3 >{title}</h3>
+                    <p onClick={handleToggle}>{isOpen ? <i className="fa-solid fa-angle-up"></i> : <i className="fa-solid fa-angle-down"></i>}</p>
+                </div>
                 {isOpen && (
                     <ul>
                         {options.map((option) => (
@@ -22,7 +23,7 @@ export const FilterSidebar = ({ title, className, options, selectedOptions, onOp
                                     checked={selectedOptions.includes(option)}
                                     onChange={() => onOptionChange(option)}
                                 />
-                                <label htmlFor={option}>{option}</label>
+                                <p>{option}</p>
                             </li>
                         ))}
                     </ul>

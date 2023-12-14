@@ -26,10 +26,10 @@ const ProductDescription = () => {
                     </p>
                 </div>
                 <div className="modal-grid">
-                    {data.map((item, index) => (
-                        <div key={index}>
-                            <p id="head">{item.head}</p>
-                            <p id="col">{item.col}</p>
+                    {data?.map((item) => (
+                        <div key={item.id} className="grid">
+                            <p className="head">{item?.head}</p>
+                            <p className="col">{item?.col}</p>
                         </div>
                     ))}
                 </div>

@@ -12,9 +12,6 @@ const Navbar = () => {
         location.pathname !== '/' &&
         !['/signIn', '/signUp', '/myCart'].includes(location.pathname);
 
-
-  
-
     return showNavbar ? (
         <div className="navContainer">
             <img src={images?.logo} alt='logo' className="logo" />

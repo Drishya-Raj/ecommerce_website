@@ -4,11 +4,6 @@ import TextInput from "./textInput";
 const SearchBar = () => {
     const [searchInput, setSearchInput] = useState('');
     console.log('searchinput==>',searchInput);
-
-    // const filteredItem = Products.filter((product)=>
-    // product.text.toLocaleLowerCase)
-
-   
     return (
         <TextInput
             type="text"

@@ -2,7 +2,7 @@ import React from "react";
 
 const TextInput = (props) => {
 
-    const{type, onChange ,placeholder,value,icon, className,onInput,onBlur, onClick} = props;
+    const{type, onChange ,placeholder,value,icon,checked, className,onInput,onBlur, onClick} = props;
     return (
         <div className="textInput">
             <p className="inputContainer">
@@ -17,6 +17,7 @@ const TextInput = (props) => {
                     onInput={onInput}
                     icon={icon}
                     onBlur={onBlur}
+                    checked = {checked}
                 />
                 
             </p>

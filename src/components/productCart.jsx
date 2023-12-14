@@ -1,9 +1,7 @@
-import ProductRenderItem from "./RenderItem";
+import ProductRenderItem from "./constants/renderItems";
 import { Products } from "./constants/array";
 
 const ProductCart = () => {
-
-   
 
     return (
         <div className="productCart">
@@ -11,8 +9,6 @@ const ProductCart = () => {
                 {Products.map((item, index) => {
                     return <ProductRenderItem key={index} item={item} 
                    
-                    // addToCart={addToCart}
-                    // removeFromCart={removeFromCart}
                     />
                 })}
             </ul>

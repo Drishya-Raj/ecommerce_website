@@ -43,13 +43,8 @@ const CartItems = () => {
                                 <div className='content'>
                                     <div className='text-items'>
                                         <h4>{item.text}</h4>
-                                        {/* <p>{item.type}</p> */}
                                         <div className='buttonitems'>
                                         <Button className="btn1" value="Remove" onClick={() => removeItem(item.id)} />
-                                       {/* {save?
-                                       (<Button className="btn2" value="Save for Later " onClick={()=>saveItem(item.id)} />):
-                                       (<Button className="btn2" value="Saved"  />)
-                                    }  */}
                                         </div>
                                     </div>
                                     <div className='left'>

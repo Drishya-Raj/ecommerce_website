@@ -6,10 +6,10 @@ import { Provider } from "react-redux";
 export const authContext = createContext();
 function App() {
 
- 
+
   return (
     <Provider store={store}>
-    <Router />
+      <Router />
     </Provider >
   );
 }

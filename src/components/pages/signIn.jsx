@@ -18,7 +18,11 @@ const SignIn = () => {
     const [showAlert, setShowAlert] = useState();
     const [emailAlert, setEmailAlert] = useState('');
     const [passwordAlert, setPasswordAlert] = useState('');
+    const [showPassword, setShowPassword] = useState();
 
+    const onVisibility = () => {
+        setShowPassword(!showPassword);
+    }
     const onLogin = (e) => {
         e.preventDefault();
 
@@ -49,14 +53,14 @@ const SignIn = () => {
 
     const validateEmail = () => {
         let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        (!emailPattern.test(email)) ? setEmailAlert('** Enter a valid email id **') : setEmailAlert('');
+        (!emailPattern.test(email)) ? setEmailAlert('Enter a valid email id ') : setEmailAlert('');
 
     };
 
     const validatePassword = () => {
         const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?/~_+-=|\\]).{8,32}$/;
 
-        (!passwordRegex.test(password)) ? setPasswordAlert('** Enter valid  Password ***') : setPasswordAlert('');
+        (!passwordRegex.test(password)) ? setPasswordAlert(' Enter valid  Password') : setPasswordAlert('');
     };
 
 
@@ -73,7 +77,7 @@ const SignIn = () => {
         },
         {
             id: 2,
-            type: "password",
+            type: showPassword ? "text" : "password",
             placeholder: "Enter Password",
             onChange: (e) => setPassword(e.target.value),
             value: password,
@@ -93,7 +97,7 @@ const SignIn = () => {
                     <h2>Let's Get Started, Login here !</h2>
                     {textInputs.map((item) => (
                         <ul key={item.id}>
-                            <label>{item.label}</label><br /><br />
+                            <br/>
                             <TextInput
                                 type={item.type}
                                 placeholder={item.placeholder}
@@ -102,14 +106,18 @@ const SignIn = () => {
                                 onInput={item.onInput}
                                 className={item.className}
                             />
-                            <span className="error" style={{ color: item.alert ? 'red' : 'green' }}>
-                                {item.alert}
+                            {item?.value ? (<><span className="error" style={{ color: item.alert ? 'red' : 'green', position: 'absolute' }}>
+                                {item?.alert}
                             </span>
+                            </>) : null}
+                            <br />
                         </ul>
-
                     ))}
-
-
+                    <br/>
+                    <span>
+                        <input type="checkbox" value={showPassword} onChange={onVisibility} />
+                        Show Password
+                    </span>
                     <Link to="/homepage">
                         <Button onClick={onLogin} value="Login" />
                     </Link>

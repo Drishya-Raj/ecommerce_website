@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import * as images from '../images'
 import { useState } from "react";
 import Breadcrumbs from "../BreadCrumb";
+import SearchBar from "../searchBar";
+
 const MobDetails = () => {
 
     return (
@@ -13,6 +15,7 @@ const MobDetails = () => {
             <Navbar2 />
             <div className="navbar3">
                 <Breadcrumbs />
+                <SearchBar />
             </div>
             <div className="middle">
                 <ListItem />

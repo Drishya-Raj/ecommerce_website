@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import * as images from '../images';
-import { Link } from 'react-router-dom';
+import { Link , useLocation} from 'react-router-dom';
 
 
 function Hamburger() {
     const [open, setOpen] = useState(false);
+    const location = useLocation();
+    console.log("path==", location.pathname);
+    const showHamburger =
+        location.pathname !== '/' &&
+        !['/signIn', '/signUp'].includes(location.pathname);
 
-    return (
+    return showHamburger? (
         <div className='hamburger'>
             {/* <div className='container'>
-                <img src={images?.logo} alt="logo" />
+                <img src={images?.logo} alt="logo" width="70px" />
             </div> */}
             <input type="checkbox" id="check" />
             {open ?
@@ -69,7 +74,7 @@ function Hamburger() {
                     <i className='fas fa-bars'></i>
                 </label>)}
         </div>
-    )
+    ):null;
 }
 
 export default Hamburger;

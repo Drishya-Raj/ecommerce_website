@@ -8,16 +8,15 @@ const Navbar2 = () => {
                 <li>Projects</li>
                 <li>Menu Item</li>
                 <li><label htmlFor="Help">Help</label>
-                    <select name="">
-                        <option></option>
-                    </select>
+                   
                 </li>
             </ul>
             <ul className="right">
                 <li>English,</li>
                 <li><label htmlFor="USD">USD</label>
                     <select name="">
-                        <option></option>
+                        <option value>USD</option>
+                        <option value>INR</option>
                     </select></li>
                 <li>
                     <label htmlFor="Ship to">Ship to</label>

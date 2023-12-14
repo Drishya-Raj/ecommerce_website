@@ -23,12 +23,11 @@ const Main = () => {
       <ul className="bannerContainer">
         <div className="sidebar">
           <ul>
-            {sidebarList.map((item) => (
-              <li key={item.id}>{item.text}</li>
+            {sidebarList?.map((item) => (
+              <li key={item?.id}>{item?.text}</li>
             ))}
           </ul>
         </div>
-
         <div className="mask">
           <div className="bimg">
             <img src={images?.banner} alt="images" /></div>
@@ -51,7 +50,6 @@ const Main = () => {
             <p>Hygiene equipments</p>
           </div>
           <div className="countdowns">
-
             {timer?.map((item) => (
               <ul className="timer">
                 <li key={item.id}>{item.day}</li>
@@ -62,15 +60,15 @@ const Main = () => {
         </div>
         <div className="items">
           <ul>
-            {deals.map((item) => (
-              <li className='deals-items' key={item.id} >
+            {deals?.map((item) => (
+              <li className='deals-items' key={item?.id} >
                 <div className='imgcontainer'>
                   <Link to="/mobdetails">
                     <img src={item?.image} alt="items" />
                   </Link>
                 </div>
-                <p>{item.text}</p>
-                <Button value={item.btext}/>
+                <p>{item?.text}</p>
+                <Button value={item?.btext}/>
               </li>
             ))}
           </ul>

@@ -7,6 +7,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import TextInput from "../textInput";
 import { loginUser } from "../../Redux/action";
 import { Alert } from "../modal/Alert";
+import Button from "../button";
 
 const SignUp = () => {
     const loginuser = useSelector((state) => state.isAuthenticated);
@@ -62,8 +63,8 @@ const SignUp = () => {
                 setError("Email is already in use. Please use a different email.");
                 { showAlert ? (setShowAlert(false)) : setShowAlert(true) }
                 dispatch(loginUser(email, password, false));
-                
-            } 
+
+            }
             // else {
             //     console.error("Error creating user:", errorCode, errorMessage);
             //     dispatch(loginUser(email, password, false));
@@ -72,29 +73,29 @@ const SignUp = () => {
     }
     const validateUsername = () => {
         const usernameRegex = /^[a-zA-Z]+$/;
-        (!usernameRegex.test(username)) ? setUsernameAlert('** Enter a valid username **') : setUsernameAlert('');
+        (!usernameRegex.test(username)) ? setUsernameAlert(' Enter a valid username ') : setUsernameAlert('');
     }
     const validateEmail = () => {
         let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        (!emailPattern.test(email)) ? setEmailAlert('** Enter a valid email id **') : setEmailAlert('');
+        (!emailPattern.test(email)) ? setEmailAlert(' Enter a valid email id ') : setEmailAlert('');
     };
 
     const validatePassword = () => {
-        const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?/~_+-=|\\]).{8,32}$/;
+        if (password !== '') {
+            const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?/~_+-=|\\]).{8,32}$/;
 
-        (!passwordRegex.test(password)) ? setPasswordAlert('** Enter valid  Password ***') : setPasswordAlert('');
+            (!passwordRegex.test(password)) ? setPasswordAlert('Enter valid  Password ') : setPasswordAlert('');
+        }
+        else {
+            return false;
+        }
     };
     const onVisibility = () => {
-        {
-            visible === "visibility" ?
-                setVisible("visibility_off") :
-                setVisible("visibility")
-        }
+        setShowPassword(!showPassword);
     }
 
     const textinputs = [
         {
-            // label: 'Username:',
             id: 1,
             type: "text",
             placeholder: "Enter username",
@@ -107,7 +108,6 @@ const SignUp = () => {
 
         {
             id: 2,
-            // label: 'Email:',
             type: "text",
             placeholder: "Enter email",
             value: email,
@@ -118,31 +118,17 @@ const SignUp = () => {
         },
         {
             id: 3,
-            type: visible === 'visibility' ? "text" : "password",
-            // type: "password",
+            type: showPassword ? "text" : "password",
             placeholder: "Enter password",
             value: password,
             onChange: (e) => setPasswords(e.target.value),
             className: "inputpwd",
             onInput: validatePassword,
             alert: passwordAlert,
-            onClick: onVisibility,
-        },
-        {
-            id:4,
-            type:"checkbox",
-            label: "Show Password"
 
         },
-        {
-            id: 5,
-            type: "submit",
-            value: "sign up",
-            onClick: handleClick,
-            className: "submit"
-        }
+
     ]
-
     return (
         <div className="signup">
             {showAlert && <Alert message={{ maincolor: '#e91616;', title: 'Error', text: error }} />}
@@ -151,25 +137,31 @@ const SignUp = () => {
                 <br />
                 {textinputs.map((item) => (
                     <ul key={item.id}>
-                        {/* <label>{item.label}</label><br /><br /> */}
                         <br />
-
                         <TextInput
-                            type={item.type}
-                            placeholder={item.placeholder}
-                            value={item.value}
-                            onChange={item.onChange}
-                            className={item.className}
-                            onClick={item.onClick}
-                            onInput={item.onInput}
-                        /> <br />
+                            type={item?.type}
+                            placeholder={item?.placeholder}
+                            value={item?.value}
+                            onChange={item?.onChange}
+                            className={item?.className}
+                            onClick={item?.onClick}
+                            onInput={item?.onInput}
+                            checked={item?.checked}
+                        />
                         <span className="material-symbols-outlined">{item.icon}</span>
-                        <span className="error" style={{ color: item.alert ? 'red' : 'green' }}>
-                            {item.alert}
+                        {item?.value ? (<><span className="error" style={{ color: item.alert ? 'red' : 'green', position: 'absolute' }}>
+                            {item?.alert}
                         </span>
-
+                        </>) : null}
+                        <br />
                     </ul>
                 ))}
+                <br />
+                <span>
+                    <input type="checkbox" value={showPassword} onChange={onVisibility} />
+                    Show Password
+                </span><br />
+                <Button className="submit" value="Sign Up" onClick={handleClick} /><br />
                 <h4>Already have an account ?</h4><br />
                 <Link to='/signIn'>
                     <TextInput

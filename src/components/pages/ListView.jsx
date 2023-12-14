@@ -5,6 +5,7 @@ import * as images from '../images';
 import { Link } from 'react-router-dom';
 import Seven from "../sectionSeven";
 import Breadcrumbs from "../BreadCrumb";
+import SearchBar from "../searchBar";
 
 
 const ListView = () => {
@@ -15,6 +16,7 @@ const ListView = () => {
             <Navbar2 />
             <div className="navbar3">
                 <Breadcrumbs/>
+                <SearchBar />
             </div>
             <div className="middle">
                 <ListItem />

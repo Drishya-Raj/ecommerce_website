@@ -21,196 +21,283 @@ export const checklist = [
         text: ' Some great feature name here'
     }
 ]
-export  const cart = [
+
+export const country = [
     {
-        id:1,
+        id: 1,
+        country: 'Country'
+    },
+    {
+        id: 2,
+        country: 'India'
+    },
+    {
+        id: 3,
+        country: 'Canada'
+    },
+    {
+        id: 4,
+        country: 'Afghanisthan'
+    },
+    {
+        id: 5,
+        country: 'China'
+    },
+    {
+        id: 6,
+        country: 'Australia'
+    },
+    {
+        id: 7,
+        country: 'France'
+    },
+    {
+        id: 8,
+        country: 'Austria'
+    }
+]
+export const states = [
+    {
+        id: 1,
+        state: 'State'
+    },
+    {
+        id: 2,
+        state: 'Kerala'
+    },
+    {
+        id: 3,
+        state: 'Karnataka'
+    },
+    {
+        id: 4,
+        state: 'Tamilnadu'
+    },
+
+    {
+        id: 5,
+        state:'Arunachal Pradesh'
+    },
+    {
+        id: 6,
+        state: 'Odisha'
+    },
+    {
+        id: 7,
+        state: 'Goa'
+    },
+    {
+        id: 8,
+        state: 'Maharastra'
+    }
+    , {
+        id: 9,
+        state: 'Gujarat'
+    },
+    {
+        id: 10,
+        state: 'UttarPradesh'
+    }
+
+]
+export const cart = [
+    {
+        id: 1,
         text: 'Soft chairs',
         price: 'From USD 19',
         image: images?.chair
     },
     {
-        id:2,
+        id: 2,
         text: 'Sofa & chair',
         price: 'From USD 19',
         image: images?.lamp
     },
     {
-        id:3,
+        id: 3,
         text: 'Kitchen dishes',
         price: 'From USD 19',
         image: images?.kitchen
     },
     {
-        id:4,
+        id: 4,
         text: 'Smart Watches',
-        price : 'From USD 19',
-        image : images?.pot
+        price: 'From USD 19',
+        image: images?.pot
     },
-    
+
     {
-        id:5,
+        id: 5,
         text: 'Kitchen Mixer',
         price: 'From USD 100',
         image: images?.juicer
     },
     {
-        id:6,
+        id: 6,
         text: 'Blenders',
         price: 'From USD 39',
         image: images?.juicer2
     },
     {
-        id:7,
+        id: 7,
         text: 'Home appliance',
         price: 'From USD 19',
         image: images?.appliance
     },
     {
-        id:8,
-        text :'Coffecmaker',
-        price : 'From USD 10',
-        image : images?.plant
+        id: 8,
+        text: 'Coffecmaker',
+        price: 'From USD 10',
+        image: images?.plant
 
     }
 ];
-export 
-const itemsofSix = [
-    {
-        id:1,
-        image: images?.tshirt,
-        price: '$10.30',
-        text: 'T-shirts with multiple colors, for men'
-    },
-    {
-        id:2,
-        image: images?.suite,
-        price: '$10.30',
-        text: 'Jeans shorts for men'
-    },
-    {
-        id:3,
-        image: images?.coat,
-        price: '$12.50',
-        text: 'Brown winter coat'
-    },
-    {
-        id:4,
-        image: images?.mensWallet,
-        price: '$30.00',
-        text: 'Jeans bag for travel for men'
-    },
-    {
-        id:5,
-        image: images?.bag,
-        price: '$99.0',
-        text: 'Leather wallet'
-    },
-    {
-        id:6,
-        image: images?.trousers,
-        price: '$9.99',
-        text: 'Canon camera black, 100x zoom'
-    },
-    {
-        id:7,
-        image: images?.whiteheadsets,
-        price: '$8.99',
-        text: 'Headset for gaming with mic'
-    },
-    {
-        id:8,
-        image: images?.bag,
-        price: '$10.30',
-        text: 'Smartwatch silver color modern'
-
-    },
-    {
-        id:9,
-        image: images?.pot,
-        price: '$10.5',
-        text: 'Blue wallet for men leather metarfial'
-    },
-    {
-        id:10,
-        image: images?.jug,
-        price: '$80.95',
-        text: 'Jeans bag for travel for men',
-        link:"/productDetails"
-    }
-]
+export
+    const itemsofSix = [
+        {
+            id: 1,
+            image: images?.tshirt,
+            price: '$10.30',
+            text: 'T-shirts with multiple colors, for men'
+           , link: '/productDetails'
+        },
+        {
+            id: 2,
+            image: images?.suite,
+            price: '$10.30',
+            text: 'Jeans shorts for men'
+            , link: '/productDetails'
+        },
+        {
+            id: 3,
+            image: images?.coat,
+            price: '$12.50',
+            text: 'Brown winter coat'
+            , link: '/productDetails'
+        },
+        {
+            id: 4,
+            image: images?.mensWallet,
+            price: '$30.00',
+            text: 'Jeans bag for travel for men'
+            , link: '/productDetails'
+        },
+        {
+            id: 5,
+            image: images?.bag,
+            price: '$99.0',
+            text: 'Leather wallet'
+            , link: '/productDetails'
+        },
+        {
+            id: 6,
+            image: images?.trousers,
+            price: '$9.99',
+            text: 'Canon camera black, 100x zoom'
+            , link: '/productDetails'
+        },
+        {
+            id: 7,
+            image: images?.whiteheadsets,
+            price: '$8.99',
+            text: 'Headset for gaming with mic'
+            , link: '/productDetails'
+        },
+        {
+            id: 8,
+            image: images?.bag,
+            price: '$10.30',
+            text: 'Smartwatch silver color modern'
+            , link: '/productDetails'
+        },
+        {
+            id: 9,
+            image: images?.pot,
+            price: '$10.5',
+            text: 'Blue wallet for men leather metarfial'
+            , link: '/productDetails'
+        },
+        {
+            id: 10,
+            image: images?.jug,
+            price: '$80.95',
+            text: 'Jeans bag for travel for men',
+            link: '/productDetails'
+        }
+    ]
 export const service = [
     {
-        id:1,
+        id: 1,
         image1: images?.industry,
         image2: images?.search,
         text: 'Source from Industry Hubs'
     },
     {
-        id:2,
+        id: 2,
         image1: images?.rainbow,
         image2: images?.bucket,
         text: 'Customize Your Products'
     },
     {
-        id:3,
+        id: 3,
         image1: images?.aeroplane,
         image2: images?.send,
         text: 'Fast, reliable shipping by ocean or air'
     },
     {
-        id:4,
-        image1:images?. workers,
+        id: 4,
+        image1: images?.workers,
         image2: images?.security,
         text: 'Product monitoring and inspection'
     }
 ]
 
-export const itemImages= [
+export const itemImages = [
     {
-        id:1,
+        id: 1,
         text: 'Smart Watches',
         price: 'From USD 19',
         image: images?.smartwatch
     },
     {
-        id:2,
+        id: 2,
         text: 'Camera',
         price: 'From USD 89',
         image: images?.cameras
     },
     {
-        id:3,
+        id: 3,
         text: 'HeadPhones',
         price: 'From USD 10',
         image: images?.headphone
     },
     {
-        id:4,
+        id: 4,
         text: 'Smart Watches',
         price: 'From USD 90',
         image: images?.jug
     },
 
     {
-        id:5,
+        id: 5,
         text: 'Gaming set',
         price: 'From USD 35',
         image: images?.headset
     },
     {
-        id:6,
+        id: 6,
         text: 'Laptops & PC',
         price: 'From USD 340',
         image: images?.laptop
     },
     {
-        id:7,
+        id: 7,
         text: 'Smartphones',
         price: 'From USD 19',
         image: images?.smartphone
     },
     {
-        id:8,
+        id: 8,
         text: 'Electric kattle',
         price: 'From USD240',
         image: images?.mobphone
@@ -224,7 +311,7 @@ export const deals = [
         image: images?.watch,
         text: 'Smart Watches',
         btext: '-25%',
-        to:'/mobdetails'
+        to: '/mobdetails'
 
     },
     {
@@ -232,28 +319,28 @@ export const deals = [
         image: images?.laptop,
         text: 'Laptops',
         btext: '-15%',
-        to:'/mobdetails'
+        to: '/mobdetails'
     },
     {
         id: 3,
         image: images?.camera,
         text: 'GoPro cameras',
         btext: '-40%',
-        to:'/mobdetails'
+        to: '/mobdetails'
     },
     {
         id: 4,
         image: images?.headset,
         text: 'HeadPhones',
         btext: '-25%',
-        to:'/mobdetails'
+        to: '/mobdetails'
     },
     {
         id: 5,
         image: images?.mobile,
         text: 'Canon cameras',
         btext: '-25%',
-        to:'/mobdetails'
+        to: '/mobdetails'
     }
 
 ]
@@ -911,7 +998,7 @@ export const creditcard = [
         id: 1,
         type: "number",
         placeholder: "Card number",
-        className:'input'
+        className: 'input'
 
     },
     {
@@ -919,7 +1006,7 @@ export const creditcard = [
         id: 2,
         type: "text",
         placeholder: "Card name",
-        className:'input'
+        className: 'input'
 
 
     },
@@ -927,13 +1014,13 @@ export const creditcard = [
         id: 3,
         type: "number",
         placeholder: "Expiration Date MM/DD",
-        className:'input'
+        className: 'input'
     },
     {
-        id:4,
-        type:"number",
-        placeholder:"Security Code",
-        className:'input'
+        id: 4,
+        type: "number",
+        placeholder: "Security Code",
+        className: 'input'
     }
 ]
 

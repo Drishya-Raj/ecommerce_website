@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import TextInput from "../textInput";
 import Button from "../button";
-import { creditcard, imagess, inputs } from "../constants/array";
+import { country, creditcard, imagess, inputs, states } from "../constants/array";
 import { Alert } from "../modal/Alert";
 
 const Payment = () => {
@@ -18,8 +18,8 @@ const Payment = () => {
     const [emailAlert, setEmailAlert] = useState(false);
     const [amountAlert, setAmountALert] = useState(false);
     const [pincodeAlert, setPincodeAlert] = useState(false);
-
-
+    const [checked , setChecked] = useState(false);
+    
     const handleClick = () => {
         if (
             firstname === '' ||
@@ -106,12 +106,9 @@ const Payment = () => {
 
     return (
         <div className="payment">
-
             <h3>Billing details</h3>
-            {emailAlert && firstnameAlert && lastnameAlert &&  showAlert && <Alert message={{ maincolor: '#e91616;', title: 'Error', text: error }} />}
-
+            {emailAlert && firstnameAlert && lastnameAlert && showAlert && <Alert message={{ maincolor: '#e91616;', title: 'Error', text: error }} />}
             <div className="details">
-
                 {inputs.map((item) => (
                     <div className="inputbox" key={item.id}>
                         <TextInput
@@ -128,25 +125,21 @@ const Payment = () => {
 
                 <textarea placeholder="Enter address" className="input"></textarea>
                 <select name="state" className="input">State
-                    <option value="select">State</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="karnataka">Karnataka</option>
-                    <option value="Tamilnadu">Tamilnadu</option>
-                    <option value="Andra Pradesh">Andra Pradesh</option>
+                    {states.map((item) => (
+                        <option key={item.id}>{item.state}</option>
+                    ))}
                 </select>
                 <select name="country" className="input">
-                    <option value="Country">Country</option>
-                    <option value="India">India</option>
-                    <option value="china">China</option>
-                    <option value="pakistan">Pakisthan</option>
-                    <option value="Afghanisthan">Afghanisthan</option>
+                    {country.map((item) => (
+                        <option key={item.id}>{item.country}</option>
+                    ))}
                 </select>
                 <TextInput
                     placeholder="pincode"
                     className="input"
                     type="number"
                     value={pincode}
-                    onChange={(e)=>setPincode(e.target.value)}
+                    onChange={(e) => setPincode(e.target.value)}
                     onInput={validatePincode}
                 />
                 <Button value="Place order" className="place-order" onClick={handleClick} />
@@ -156,12 +149,12 @@ const Payment = () => {
                 <p>select the address that match your card or payment method</p>
                 <div className="shipping">
                     <label>
-                        <TextInput type="radio" value="Same as billing address" />
-                        <p>Same as billing address</p>
+                        <TextInput type="radio" value="Same as billing address"   checked={checked} onClick={() => setChecked(!checked)} />
+                        <span>Same as billing address</span>
                     </label>
                     <label>
-                        <TextInput type="radio" value="Use a diffent shipping address" />
-                        <p>  Use a diffent shipping address</p>
+                        <TextInput type="radio" value="Use a diffent shipping address"  checked={checked} onClick={() => setChecked(!checked)} />
+                        <span>Use a different shipping address</span>
                     </label>
                 </div>
             </div>
@@ -183,7 +176,7 @@ const Payment = () => {
                 <div className="card">
                     <div>
                         <h3>Credit card </h3>
-                        <input type="radio" value="We accept all major credit cards" />
+                        <input type="radio" value="We accept all major credit cards"  checked={checked} onClick={() => setChecked(!checked)}/>
                         <span>We accept all major credit cards</span>
                     </div>
                     <ul>
@@ -206,13 +199,7 @@ const Payment = () => {
                             </li>
                         ))}
                     </div>
-                    <TextInput
-                        type="text"
-                        placeholder="$ Enter amount"
-                        className="input"
-                        value={amount}
-                        onChange={(e) => setAmount(e.target.value)}
-                    />
+                    <TextInput type="number" placeholder="$ Enter amount" className="input" value={amount} onChange={(e) => setAmount(e.target.value)}/>
                 </div>
                 {amountAlert && <Alert message={{ maincolor: '#e91616', title: 'Error', text: error }} />}
                 <Button className="pay" value="Pay now" onClick={handleSubmit} />
