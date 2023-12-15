@@ -24,7 +24,7 @@ const Router = () => {
     return (
         <Provider store={store}>
             <BrowserRouter >
-                <Navbar />
+                {/* <Navbar /> */}
                 <Hamburger />
                 <Routes>
                     {!isAuthenticated ?

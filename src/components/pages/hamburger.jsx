@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as images from '../images';
-import { Link , useLocation} from 'react-router-dom';
-
+import { Link , NavLink, useLocation} from 'react-router-dom';
+import Navbar from '../navbar';
 
 function Hamburger() {
     const [open, setOpen] = useState(false);
@@ -13,12 +13,11 @@ function Hamburger() {
 
     return showHamburger? (
         <div className='hamburger'>
-            {/* <div className='container'>
-                <img src={images?.logo} alt="logo" width="70px" />
-            </div> */}
             <input type="checkbox" id="check" />
             {open ?
-                (<div className='hamburgercontent'>
+                (
+                <div className='hamburgercontent'>
+                         <Navbar search={false}  mobile={true} />
                     <div className='top'>
                         <img src={images?.profile} alt="user" />
                         <Link to="/signUp">

@@ -5,7 +5,6 @@ import Services from "../services";
 import BannerPart from "../bannerpart";
 import LoginPage from "./loginPage";
 import Button from "../button";
-
 import { flag } from "../constants/array";
 import TextInput from "../textInput";
 import { Link } from 'react-router-dom';
@@ -14,11 +13,13 @@ import { cart } from "../constants/array";
 import * as images from '../images';
 import { sidebarList } from "../constants/array";
 import { timer } from "../constants/array";
+import Navbar from "../navbar";
 
 const Main = () => {
-
+  
   return (
     <div className="mainSection">
+      <Navbar search ={true}/>
       <Navbar2 />
       <ul className="bannerContainer">
         <div className="sidebar">

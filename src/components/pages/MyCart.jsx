@@ -1,11 +1,11 @@
 import React, { createContext, useState , useEffect} from "react";
 import CartItems from "../cartItems";
 import CheckOut from "../checkout";
-import Navbar5 from "../navbar5";
 import Seven from "../sectionSeven";
 import Button from "../button";
 import { save } from "../constants/array";
 import { DeliveryItems } from "../constants/renderItems";
+import Navbar from "../navbar";
 
 export const cartContext = createContext();
 
@@ -37,7 +37,7 @@ const MyCart = () => {
 
     return (
         <div className="mycart">
-            <Navbar5 />
+            <Navbar search={false}/>
             <div className="flex">
                 <cartContext.Provider value={{addedItems, setAddedItems}}>
                     <CartItems />

@@ -5,11 +5,13 @@ import Seven from "../sectionSeven";
 import Button from "../button";
 import MensClothing from "./mensClothing";
 import ProductDescription from "../ProductDecsription";
+import Navbar from "../navbar";
 
 const ProductDetails = () => {
 
     return (
         <div className="productdetails">
+            <Navbar search={false}/>
             <Navbar2 />
             <MensClothing />
             <ProductDescription />

@@ -305,8 +305,6 @@ a {
 
 .loginContainer {
     background: rgba(227, 240, 255, 1);
-    // width: 100%;
-    // height: 250px;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
@@ -399,12 +397,12 @@ a {
 
 .navContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding-top: 30px;
     height: 40px;
     border-radius: 6px;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     cursor: pointer;
     padding-bottom: 50px;
@@ -472,6 +470,8 @@ a {
             background-color: #e1f0ff;
             border-radius: 6px;
             padding: 0 8px;
+            line-height: 1.1cm;
+            font-size: 18px;
         }
     }
 
@@ -497,7 +497,6 @@ a {
     margin: 0 auto;
     border: 1px solid rgba(222, 226, 231, 1);
     padding: 14px;
-    // padding-left: 8px;
     border-radius: 6px;
     align-items: center;
 }
@@ -1488,10 +1487,16 @@ footer {
     width: 90%;
     margin: 0 auto;
 
+
     .productdescription {
         gap: 20px;
         display: flex;
         flex-direction: column;
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
 
@@ -1505,11 +1510,17 @@ footer {
         border: 1px solid #DEE2E7;
         padding: 30px 10px;
         border-radius: 6px;
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         li {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            width: 30%;
 
             .img-container {
                 width: 100px;
@@ -1673,7 +1684,6 @@ footer {
     flex-direction: column;
     gap: 30px;
 
-    // width: 18%;
     .heading {
         display: flex;
         justify-content: space-between;
@@ -1753,6 +1763,7 @@ footer {
         flex-direction: column;
         gap: 20px;
         padding-bottom: 20px;
+        align-items: flex-start;
 
         li {
             margin-top: 10px;
@@ -2788,7 +2799,7 @@ footer {
     }
 
     .bannerContainer {
-        flex-wrap: wrap;
+        flex-direction: column;
 
         .bannerContact {
             display: none;
@@ -2853,7 +2864,21 @@ footer {
 
     //productdetails
     .Mens {
-        flex-wrap: wrap;
+        flex-direction: column;
+
+        .tshirt {
+            margin: 0 auto;
+
+            .imgContainer {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .parts {
+                width: 100%;
+                align-items: center;
+            }
+        }
     }
 
     .prod-left {
@@ -2910,7 +2935,7 @@ footer {
     .payment {
         .details {
             display: grid;
-            grid-template-rows: auto;
+            // grid-template-rows: auto;
             grid-template-columns: auto;
         }
 
@@ -2973,7 +2998,7 @@ footer {
     }
 
     .navContainer {
-        justify-content: space-between;
+        justify-content: space-around;
         width: 90%;
 
         .logo {
@@ -3052,7 +3077,7 @@ footer {
 
     .payment {
         .details {
-            grid-template-rows: auto;
+            // grid-template-rows: auto;
             grid-template-columns: auto;
         }
 
@@ -3078,6 +3103,12 @@ footer {
     .Mens,
     .prod-left {
         flex-wrap: wrap;
+    }
+
+    .Mens {
+        margin-top: 60px;
+        flex-direction: column;
+        align-items: center;
     }
 
     .related-products {
@@ -3166,13 +3197,13 @@ footer {
     .signup,
     .signin {
 
-        form {
-            width: 100%;
-            box-shadow: none;
-            top: 30px;
-            left: 0px;
-            gap: 0;
-        }
+        // form {
+        //     width: 100%;
+        //     box-shadow: none;
+        //     top: 30px;
+        //     left: 0px;
+        //     gap: 0;
+        // }
 
         .error {
             font-size: 12px;
@@ -3246,6 +3277,17 @@ footer {
         font-size: 18px;
     }
 
+    .signup,
+    .signin {
+        max-height: 100vh;
+
+        form {
+            width: 60%;
+            gap: 0;
+            top: 40px;
+            left: 30px;
+        }
+    }
 
 
     .navContainer {
@@ -3285,6 +3327,10 @@ footer {
         .right {
             display: none;
         }
+    }
+
+    .modal-grid {
+        margin-top: 60px;
     }
 
     .bannerContainer {
@@ -3519,8 +3565,9 @@ footer {
             }
         }
     }
-    .payment{
-        .details{
+
+    .payment {
+        .details {
             grid-template-columns: auto;
         }
     }
@@ -3538,6 +3585,20 @@ footer {
 
     .payment {
         width: 100%;
+    }
+
+    
+    .signup,
+    .signin {
+        background: none;
+        max-height: 150vh;
+
+        form {
+            width: 90%;
+            gap: 0;
+            top: 40px;
+            left: 20px;
+        }
     }
 
     .navContainer {
@@ -3727,10 +3788,6 @@ footer {
 
         }
 
-        // .parts {
-        //     flex-wrap: wrap;
-        // }
-
         .grid-items {
             width: unset;
         }
@@ -3746,7 +3803,6 @@ footer {
             flex-wrap: wrap;
         }
     }
-
 
     .Mens {
         .info {
@@ -3830,6 +3886,10 @@ footer {
 
         .coupon {
             width: unset;
+        }
+
+        .checkout {
+            width: 300px;
         }
 
         .checkoutbutton {
@@ -4009,7 +4069,6 @@ footer {
 
             .learnbutton {
                 height: 30px;
-                width: unset;
             }
         }
 
@@ -4028,7 +4087,7 @@ footer {
 
     .sectionSale {
         flex-direction: column;
-        text-align: center;
+
 
     }
 
@@ -4044,13 +4103,6 @@ footer {
 
     .count {
         border: none;
-
-        .countdown {
-            p {
-                text-align: center;
-            }
-        }
-
     }
 
     .sidebar {
@@ -4333,6 +4385,10 @@ footer {
             width: unset;
         }
 
+        .checkout {
+            width: 300px;
+        }
+
         .checkoutbutton {
             width: 200px;
             margin-left: 10%;
@@ -4441,6 +4497,22 @@ footer {
         }
 
     }
+
+  
+    .signup,
+    .signin {
+        background: none;
+        max-height: 150vh;
+
+        form {
+            width: 90%;
+            gap: 0;
+            top: 40px;
+            left: 20px;
+        }
+
+    }
+
 }
 
 
@@ -4448,6 +4520,21 @@ footer {
 @media(min-width:280px) and (max-width:320px) {
     p {
         font-size: 18px;
+    }
+
+    .signup,
+    .signin {
+        background: none;
+        h4{
+            font-size: 15px;
+        }
+        form {
+            width: 90%;
+            gap: 0;
+            top: 40px;
+            left: 15px;
+        }
+        box-shadow: none;
     }
 
     h2 {
@@ -4512,8 +4599,6 @@ footer {
 
     .sectionSale {
         flex-direction: column;
-        text-align: center;
-
     }
 
     .items {
@@ -4528,13 +4613,6 @@ footer {
 
     .count {
         border: none;
-
-        .countdown {
-            p {
-                text-align: center;
-            }
-        }
-
     }
 
     .sectionfour,
@@ -4764,27 +4842,6 @@ footer {
     }
 }
 
-
-@media(max-width : 980px) {
-    .mycart {
-        .cartitems {
-            ul {
-                li {
-                    .content {
-                        flex-wrap: wrap;
-                        gap: 50px;
-                    }
-                }
-            }
-        }
-
-        .deliveryItem {
-            font-size: 13px;
-        }
-
-    }
-}
-
 //hamburger{
 .hamburger {
     display: none;
@@ -4797,7 +4854,6 @@ footer {
         gap: 20px;
         padding: 0 0 20px 0;
         z-index: 10;
-
 
         .top {
             background: #e6d9d9;
@@ -4835,9 +4891,7 @@ footer {
             p {
                 display: flex;
                 gap: 15px;
-
             }
-
         }
 
         p {
@@ -4860,7 +4914,7 @@ footer {
 
     .open-menu {
         top: 30px;
-        right: 20px;
+        left: 20px;
         transform: translateY(-50%);
     }
 
@@ -4887,7 +4941,6 @@ footer {
         }
     }
 
-    .navContainer,
     .navbar5,
     .navbartwo {
         display: none;
@@ -4909,8 +4962,6 @@ footer {
         display: flex;
         justify-content: flex-end;
         justify-content: space-between;
-        margin-left: 50%;
-        width: 50%;
         position: absolute;
 
         a {
@@ -4938,6 +4989,18 @@ footer {
             right: 0;
         }
     }
+
+    .modal-grid {
+
+        .grid {
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+
+    .Mens {
+        margin-top: 60px;
+    }
 }
 
 .notfound {
@@ -4963,7 +5026,6 @@ footer {
 //payment
 .payment {
     width: 70%;
-    // margin: 10% 0 auto;
     background: white;
     margin: 0 auto;
     border: 1px solid #eaedf1;
@@ -5032,9 +5094,6 @@ footer {
             opacity: 0.5;
         }
     }
-
-
-
 
     .shipping-details {
         display: flex;
@@ -5157,6 +5216,24 @@ footer {
             font-size: 15px;
             margin-top: 30px;
 
+        }
+    }
+
+    .Mens {
+        flex-direction: column;
+
+        .tshirt {
+            margin: 0 auto;
+
+            .imgContainer {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .parts {
+                width: 100%;
+                align-items: center;
+            }
         }
     }
 }

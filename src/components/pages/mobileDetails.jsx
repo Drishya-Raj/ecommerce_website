@@ -7,15 +7,16 @@ import * as images from '../images'
 import { useState } from "react";
 import Breadcrumbs from "../BreadCrumb";
 import SearchBar from "../searchBar";
+import Navbar from "../navbar";
 
 const MobDetails = () => {
 
     return (
         <div className="mobDetails">
+            <Navbar search={true}/>
             <Navbar2 />
             <div className="navbar3">
                 <Breadcrumbs />
-                <SearchBar />
             </div>
             <div className="middle">
                 <ListItem />

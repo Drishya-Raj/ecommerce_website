@@ -1,8 +1,7 @@
 import React from "react";
 
-const TextInput = (props) => {
+const TextInput = ({type, onChange ,placeholder,value,icon,checked, className,onInput,onBlur, onClick}) => {
 
-    const{type, onChange ,placeholder,value,icon,checked, className,onInput,onBlur, onClick} = props;
     return (
         <div className="textInput">
             <p className="inputContainer">

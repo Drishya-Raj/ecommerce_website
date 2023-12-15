@@ -137,7 +137,6 @@ const SignUp = () => {
                 <br />
                 {textinputs.map((item) => (
                     <ul key={item.id}>
-                        <br />
                         <TextInput
                             type={item?.type}
                             placeholder={item?.placeholder}

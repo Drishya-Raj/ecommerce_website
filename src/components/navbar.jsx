@@ -5,42 +5,54 @@ import * as images from './images';
 import { Link, useLocation } from 'react-router-dom';
 import { navItems } from './constants/array';
 
-const Navbar = () => {
-    const location = useLocation();
-    console.log("path==", location.pathname);
-    const showNavbar =
-        location.pathname !== '/' &&
-        !['/signIn', '/signUp', '/myCart'].includes(location.pathname);
+const Navbar = ({ search = true, mobile = false }) => {
+    const filterArray = navItems.filter((item) => (item.id === 1 || item.id === 4));
 
-    return showNavbar ? (
+    return (
         <div className="navContainer">
             <img src={images?.logo} alt='logo' className="logo" />
-            <div className='search-items'>
-                <SearchBar />
-                <div className='input'>
-                    <div className="dropdown">
-                        <label htmlFor="all">All category</label>
-                        <select name="type">
-                            <option value="mensclothing"></option>
-                        </select>
+
+            {search &&
+                <div className='search-items'>
+                    <SearchBar />
+                    <div className='input'>
+                        <div className="dropdown">
+                            <label htmlFor="all">All category</label>
+                            <select name="type">
+                                <option value="mensclothing"></option>
+                            </select>
+                        </div>
+                        <Button className="searchbutton" value="Search" />
                     </div>
-                    <Button className="searchbutton" value="Search" />
-                </div>
-            </div>
+                </div>}
             <div className="navActions">
-                <ul className="img_container">
-                    {navItems.map((item) => (
-                        <Link key={item.id} to={item.to}>
-                            <li>
-                                <img src={item.imgSrc} alt={item.text} />
-                                <p>{item.text}</p>
-                            </li>
-                        </Link>
-                    ))}
-                </ul>
+                {!mobile ? (
+                    <ul className="img_container">
+                        {navItems.map((item) => (
+                            <Link key={item.id} to={item.to}>
+                                <li>
+                                    <img src={item.imgSrc} alt={item.text} />
+                                    <p>{item.text}</p>
+                                </li>
+                            </Link>
+                        ))}
+                    </ul>
+                ) : (
+                    <ul className="img_container">
+                        {filterArray.map((item) => (
+                            <Link key={item.id} to={item.to}>
+                                <li>
+                                    <img src={item.imgSrc} alt={item.text} />
+                                    <p>{item.text}</p>
+                                </li>
+                            </Link>
+                        ))}
+                    </ul>
+                )}
+
             </div>
         </div>
-    ) : null;
+    )
 };
 
 export default Navbar;
