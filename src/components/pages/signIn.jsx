@@ -72,7 +72,7 @@ const SignIn = () => {
             onChange: (e) => setEmail(e.target.value),
             value: email,
             onInput: validateEmail,
-            className: "input",
+            className: email? "input1":"input",
             alert: emailAlert
         },
         {
@@ -82,7 +82,7 @@ const SignIn = () => {
             onChange: (e) => setPassword(e.target.value),
             value: password,
             onInput: validatePassword,
-            className: "input",
+            className:password?"input1": "input",
             alert: passwordAlert
         }
     ]

@@ -1,5 +1,5 @@
 import AsideItems from "./asideItems";
-import { data } from "./constants/array";
+import { data, dataInfo } from "./constants/array";
 import { checklist } from "./constants/array";
 
 const ProductDescription = () => {
@@ -26,7 +26,7 @@ const ProductDescription = () => {
                     </p>
                 </div>
                 <div className="modal-grid">
-                    {data?.map((item) => (
+                    {dataInfo?.map((item) => (
                         <div key={item.id} className="grid">
                             <p className="head">{item?.head}</p>
                             <p className="col">{item?.col}</p>

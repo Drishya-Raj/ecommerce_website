@@ -2,12 +2,11 @@ import React, { useState } from "react";
 export const Alert = ({ message }) => {
     const [open, setOpen] = useState(true);
 
-
     if (open)
 
         return (
             <div className="alert">
-                <div className="alert-container" style={{ background: message.maincolor, border:' 1px solid'  +message.secondarycolor}}>
+                <div className="alert-container">
                     <div className="symbol">
                     </div>
                     <div className="description">

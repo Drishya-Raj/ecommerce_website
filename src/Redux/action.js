@@ -1,4 +1,4 @@
-import { ADD_EMAIL, ADD_PASSWORD, ADD_TO_CART, ADD_USER, LOGIN_USER } from "./actionTypes";
+import { ADD_EMAIL, ADD_PASSWORD, ADD_TO_CART, ADD_USER, LOGIN_USER , FETCH_SUCCESS} from "./actionTypes";
 
 export const setUsername = (username) => {
     return{
@@ -28,5 +28,10 @@ export const loginUser = (isAuthenticated) => ({
 export const setAddedItems = (addedItems) =>({
     type: ADD_TO_CART,
     payload :addedItems
+})
+
+export const fetchDataSuccess = (data) => ({
+    type : FETCH_SUCCESS,
+    payload : data
 })
  

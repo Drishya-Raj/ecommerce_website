@@ -1,11 +1,12 @@
-import { ADD_USER, ADD_EMAIL, ADD_PASSWORD, LOGIN_USER, ADD_TO_CART } from './actionTypes'
+import { ADD_USER, ADD_EMAIL, ADD_PASSWORD, LOGIN_USER, ADD_TO_CART, FETCH_SUCCESS } from './actionTypes'
 
 const initialState = {
     // username : ''
     username: localStorage.getItem('username') || '',
     emailId: localStorage.getItem('emailId'),
     passwords: localStorage.getItem('passwords'),
-    isAuthenticated: false
+    isAuthenticated: false,
+    data: null
 };
 
 const Reducers = (state = initialState, action) => {
@@ -41,6 +42,11 @@ const Reducers = (state = initialState, action) => {
                 ...state,
                 cartItems: [...state.cartItems, action.payload],
             };
+        case FETCH_SUCCESS :
+            return {
+                ...state,
+                data:action.payload
+            }    
 
         default:
             return state;

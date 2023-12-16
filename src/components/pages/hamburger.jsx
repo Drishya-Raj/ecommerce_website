@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import * as images from '../images';
-import { Link , NavLink, useLocation} from 'react-router-dom';
+import { Link , useLocation} from 'react-router-dom';
 import Navbar from '../navbar';
 
 function Hamburger() {
@@ -17,7 +17,7 @@ function Hamburger() {
             {open ?
                 (
                 <div className='hamburgercontent'>
-                         <Navbar search={false}  mobile={true} />
+                     
                     <div className='top'>
                         <img src={images?.profile} alt="user" />
                         <Link to="/signUp">

@@ -14,13 +14,15 @@ import * as images from '../images';
 import { sidebarList } from "../constants/array";
 import { timer } from "../constants/array";
 import Navbar from "../navbar";
+import NavItem from "../navBar2";
 
 const Main = () => {
+
   
   return (
     <div className="mainSection">
       <Navbar search ={true}/>
-      <Navbar2 />
+      <NavItem />
       <ul className="bannerContainer">
         <div className="sidebar">
           <ul>

@@ -458,7 +458,7 @@ export const imageItems = [
     }
 
 ]
-export const data = [
+export const dataInfo = [
     {
         id: 1,
         head: "Model",

@@ -99,7 +99,7 @@ const SignUp = () => {
             id: 1,
             type: "text",
             placeholder: "Enter username",
-            className: "input",
+            className: username?"input1":"input",
             value: username,
             onChange: (e) => setUserNames(e.target.value),
             alert: usernameAlert,
@@ -112,7 +112,7 @@ const SignUp = () => {
             placeholder: "Enter email",
             value: email,
             onChange: (e) => setEmails(e.target.value),
-            className: "input",
+            className: email ? "input1": "input",
             alert: emailAlert,
             onInput: validateEmail
         },
@@ -122,7 +122,7 @@ const SignUp = () => {
             placeholder: "Enter password",
             value: password,
             onChange: (e) => setPasswords(e.target.value),
-            className: "inputpwd",
+            className: password?"input1":"inputpwd",
             onInput: validatePassword,
             alert: passwordAlert,
 
@@ -137,17 +137,17 @@ const SignUp = () => {
                 <br />
                 {textinputs.map((item) => (
                     <ul key={item.id}>
-                        <TextInput
+                        <TextInput 
                             type={item?.type}
                             placeholder={item?.placeholder}
                             value={item?.value}
                             onChange={item?.onChange}
                             className={item?.className}
-                            onClick={item?.onClick}
+                            // onClick={item?.onClick}
                             onInput={item?.onInput}
                             checked={item?.checked}
                         />
-                        <span className="material-symbols-outlined">{item.icon}</span>
+                        {/* <span className="material-symbols-outlined">{item.icon}</span> */}
                         {item?.value ? (<><span className="error" style={{ color: item.alert ? 'red' : 'green', position: 'absolute' }}>
                             {item?.alert}
                         </span>
