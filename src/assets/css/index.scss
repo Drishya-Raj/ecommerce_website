@@ -92,10 +92,24 @@ a {
     background: url('../images/banner.png') no-repeat;
     background-size: cover;
 
+    label {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
     span {
         display: flex;
         gap: 10px;
         font-size: 16px;
+    }
+
+    ::placeholder {
+        color: #e2eaf4
     }
 
     form {
@@ -119,6 +133,7 @@ a {
             width: 100%;
             background-color: white;
             color: black;
+            margin-bottom: 10px;
 
         }
 
@@ -129,6 +144,7 @@ a {
             width: 100%;
             color: black;
             background-color: rgb(230, 250, 254);
+            margin-bottom: 10px;
 
         }
 
@@ -140,6 +156,7 @@ a {
             font-weight: 600;
             font-size: 18px;
             border-radius: 6px;
+            margin-bottom: 20px;
         }
     }
 }
@@ -150,6 +167,16 @@ a {
     height: 100vh;
     background: url('../images/banner.png') no-repeat;
     background-size: cover;
+
+    label {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: space-between;
+    }
 
     span {
         display: flex;
@@ -179,6 +206,7 @@ a {
         width: 100%;
         background-color: white;
         color: black;
+        margin-bottom: 10px;
 
     }
 
@@ -189,16 +217,19 @@ a {
         width: 100%;
         color: black;
         background-color: rgb(230, 250, 254);
+        margin-bottom: 10px;
+
     }
 
     button {
-        width: 100%;
         background-color: #9ee3cf;
         color: black;
-        font-weight: bold;
-        padding: 12px 8px;
-        border-radius: 4px;
-        margin: 20px 0;
+        width: 100%;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 18px;
+        border-radius: 6px;
+        margin-bottom: 20px;
     }
 
     p {
@@ -393,6 +424,7 @@ a {
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            padding: 0 5px;
 
             p {
                 color: #8B96A5;
@@ -925,9 +957,10 @@ a {
         &::-webkit-scrollbar {
             display: none;
         }
-         li{
+
+        li {
             padding: 12px;
-         }
+        }
 
 
         .cartItems {
@@ -3039,6 +3072,7 @@ footer {
 
     .bannerContainer {
         border: none;
+        margin-top: 60px;
     }
 
     .navContainer {
@@ -3321,15 +3355,17 @@ footer {
         font-size: 18px;
     }
 
+
     .signup,
     .signin {
-        min-height: 180vh;
+        background: none;
+        max-height: 150vh;
 
         form {
-            width: 60%;
+            width: 90%;
             gap: 0;
             top: 40px;
-            left: 30px;
+            left: 20px;
         }
     }
 
@@ -3380,7 +3416,7 @@ footer {
     .bannerContainer {
         flex-wrap: wrap;
         border: none;
-
+        margin-top: 60px;
 
         .mask {
 
@@ -3742,9 +3778,10 @@ footer {
             }
         }
     }
-    .shopbutton{
-        bottom:15px;
-    
+
+    .shopbutton {
+        bottom: 15px;
+
     }
 
     .sectionSix {
@@ -4915,6 +4952,7 @@ footer {
         gap: 20px;
         padding: 0 0 20px 0;
         z-index: 10;
+        right: 10px;
 
         .top {
             background: #e6d9d9;
@@ -4975,7 +5013,8 @@ footer {
 
     .open-menu {
         top: 30px;
-        left: 20px;
+        // left: 20px;
+        right: 30px;
         transform: translateY(-50%);
     }
 
@@ -5004,7 +5043,7 @@ footer {
 
     .mainSection {
         gap: 20px;
-      
+
     }
 
     .count {
@@ -5025,11 +5064,13 @@ footer {
         .image-container {
             width: 90%;
         }
-        
+
     }
-   .mask{
-    margin-top: 50px;
-   }
+
+    .mask {
+        margin-top: 50px;
+    }
+
     .hamburger {
         display: block;
         display: flex;

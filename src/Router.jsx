@@ -52,7 +52,6 @@ const Router = () => {
                     <Route path="/payment" element={<Payment />} />
                     
                 </Routes>
-                
             <Footer />
             </BrowserRouter>
         </Provider>

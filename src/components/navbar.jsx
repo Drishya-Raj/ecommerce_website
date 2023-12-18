@@ -5,10 +5,13 @@ import * as images from './images';
 import { Link, useLocation } from 'react-router-dom';
 import { navItems } from './constants/array';
 
-const Navbar = ({ search = true, mobile = false }) => {
+const Navbar = ({ search = true, mobile }) => {
+    const location = useLocation();
+    const showFooter =   location.pathname !== '/' && ['/payment'] &&
+    !['/signIn', '/signUp', ].includes(location.pathname);
     const filterArray = navItems.filter((item) => (item.id === 1 || item.id === 4));
 
-    return (
+    return showFooter?(
         <div className="navContainer">
             <img src={images?.logo} alt='logo' className="logo" />
 
@@ -52,7 +55,7 @@ const Navbar = ({ search = true, mobile = false }) => {
 
             </div>
         </div>
-    )
+    ):null
 };
 
 export default Navbar;

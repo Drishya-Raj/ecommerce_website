@@ -4,7 +4,7 @@ import { useLocation } from 'react-router';
 const Footer = () => {
     const location = useLocation();
     const showFooter =   location.pathname !== '/' &&
-    !['/signIn', '/signUp', '/myCart'].includes(location.pathname);
+    !['/signIn', '/signUp'].includes(location.pathname);
 
 
     return  showFooter?(

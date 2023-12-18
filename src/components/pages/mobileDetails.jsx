@@ -1,6 +1,6 @@
 import ListItem from "../listItems";
 import ProductCart from "../productCart";
-import Navbar2 from "../navBar2";
+import Navbar2 from "../navItems";
 import Seven from "../sectionSeven";
 import { Link } from 'react-router-dom';
 import * as images from '../images'

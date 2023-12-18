@@ -13,6 +13,7 @@ function Hamburger() {
 
     return showHamburger? (
         <div className='hamburger'>
+        <img src={images.logo} alt="images" style={{position:'absolute', left:'30px' , paddingTop:'10px' }}/>
             <input type="checkbox" id="check" />
             {open ?
                 (
@@ -73,7 +74,7 @@ function Hamburger() {
                     <i className='fas fa-bars'></i>
                 </label>)}
         </div>
-    ):null;
+        ):null;
 }
 
 export default Hamburger;

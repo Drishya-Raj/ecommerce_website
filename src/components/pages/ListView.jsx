@@ -1,6 +1,5 @@
 import ListItem from "../listItems";
 import ListViewContent from "../listViewContent";
-import Navbar2 from "../navBar2";
 import * as images from '../images';
 import { Link } from 'react-router-dom';
 import Seven from "../sectionSeven";
@@ -8,19 +7,16 @@ import Breadcrumbs from "../BreadCrumb";
 import SearchBar from "../searchBar";
 
 
-const ListView = () => {
+const ListView = ({crumbs}) => {
    
     return (
-
         <div className="listview">
-            <Navbar2 />
             <div className="navbar3">
-                <Breadcrumbs/>
+                <Breadcrumbs crumbs={crumbs}/>
                 <SearchBar />
             </div>
             <div className="middle">
                 <ListItem />
-                {/* <div className="flex"> */}
                 <div className="column-flex">
 
                     <div className="navbar4">
@@ -43,15 +39,9 @@ const ListView = () => {
                                 </Link>
                             </div>
                         </div>
-
                     </div>
-                    {/* <FilterSection /> */}
-                    
                         <ListViewContent />
-                   
-
                 </div>
-                {/* </div> */}
             </div>
             <Seven />
         </div>

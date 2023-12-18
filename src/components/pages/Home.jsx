@@ -1,4 +1,3 @@
-import Navbar2 from "../navBar2";
 import SectionSix from "../sectionSix";
 import SectionFour from "../sectionFour";
 import Services from "../services";
@@ -14,10 +13,9 @@ import * as images from '../images';
 import { sidebarList } from "../constants/array";
 import { timer } from "../constants/array";
 import Navbar from "../navbar";
-import NavItem from "../navBar2";
+import NavItem from "../navItems";
 
 const Main = () => {
-
   
   return (
     <div className="mainSection">

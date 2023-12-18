@@ -44,14 +44,12 @@ const items = [
 ];
 
 const ListItem = () => {
-    // const location = useLocation();
+   
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedBrands, setSelectedBrands] = useState([]);
     const [priceRange, setPriceRange] = useState([0, 100]);
     const [selectedFeatures, setSelectedFeatures] = useState([]);
     const [selectedCondition, setSelectedCondition] = useState([]);
-    // const [selectedView, setSelectedView] = useState('grid');
-
 
     const filteredItems = items.filter((item) => {
         const categoryCondition = selectedCategories.length === 0 || selectedCategories.includes(item.category);
@@ -139,7 +137,6 @@ const ListItem = () => {
                  
                     <span  className="input">${priceRange[0]}</span>  - <span  className="input">${priceRange[1]}</span>
                 </div>
-                {/* </div> */}
                 <FilterSidebar
                     title="Features"
                     options={features}
@@ -152,23 +149,15 @@ const ListItem = () => {
                     options={conditions}
                     selectedOptions={selectedCondition}
                     onOptionChange={handleConditionChange}
-
                 />
             </div>
-
-            {/* Display filtered items */}
-
-            {/* <div className='filterItem'> */}
             <ul className='filter'>
                 {filteredItems.map((item) => (
                     <li key={item.id}>
                         {item.category} - {item.brand} - ${item.price} -{item.feature}
                     </li>
                 ))}
-                {/* <p className="clr">Clear all filter</p> */}
             </ul>
-
-            {/* </div> */}
         </div>
     );
 };

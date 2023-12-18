@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar2 from "../navBar2";
+import Navbar2 from "../navItems";
 import { products } from "../constants/array";
 import Seven from "../sectionSeven";
 import Button from "../button";

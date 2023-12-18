@@ -34,7 +34,7 @@ const Reducers = (state = initialState, action) => {
             localStorage.setItem('isAuthenticated', action.payload);
             return {
                 ...state,
-                isAuthenticated: action.payload
+                isAuthenticated: action.payload.isAuthenticated,
             };
 
         case ADD_TO_CART:
