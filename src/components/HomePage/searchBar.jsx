@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TextInput from "./textInput";
+import TextInput from "../textInput";
 
 const SearchBar = () => {
     const [searchInput, setSearchInput] = useState('');

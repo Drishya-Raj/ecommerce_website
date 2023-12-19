@@ -42,14 +42,26 @@ const RegisterForm = ({ type, onSuccess }) => {
 
     const validatePassword = () => {
         if (password !== '') {
-            const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?/~_+-=|\\]).{8,32}$/;
+            if ((password).length < 8) {
+                setPasswordError("Be at least 8 characters long");
 
-            (!passwordRegex.test(password)) ? setPasswordError('Enter valid  Password ') : setPasswordError('');
+            } else if (!(/[A-Z]/.test(password))) {
+                setPasswordError("contain atleast one uppercase letter");
+
+            } else if ((!(/[a-z]/.test(password)))) {
+                setPasswordError("contain atleast one lowercase letter");
+
+            } else if (!(/[0-9]/.test(password))) {
+                setPasswordError("contain atleast one number");
+            } else {
+                setPasswordError('');
+                return true;
+            }
         }
-        else {
-            return false;
-        }
+       
+        return false;
     };
+
     const toggleVisibility = () => {
         setVisible(!visible);
         setShowPassword(!showPassword);
@@ -163,7 +175,7 @@ const RegisterForm = ({ type, onSuccess }) => {
                 <br />
                 {type == 'signUp' ?
                     (<>
-                       
+
                         <Button value="Sign Up" className="submit" onClick={handleClick} />
                     </>) :
                     (

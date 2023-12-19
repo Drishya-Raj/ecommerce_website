@@ -1,47 +1,12 @@
 import React, { useState } from 'react';
 import { FilterSidebar } from './filterSidebar';
-import TextInput from './textInput';
+import TextInput from '../textInput';
+import { items } from '../constants/array';
 
 const categories = ['Mobile Accessory', 'Electronics', 'Modern tech', 'Smartphones'];
 const brands = ['Samsung', 'Apple', 'Huwaei', 'Poco', 'Lenovo'];
 const features = ['Metallic', 'Plastic Cover', '8 GB Ram', 'Super Power', 'Large Memory'];
 const conditions = ['Any', 'Refurbished', 'Brand new', 'Old items'];
-
-const items = [
-    {
-        id: 1,
-        category: 'Electronics',
-        brand: 'Samsung',
-        price: 50,
-        feature: 'Metallic',
-        condition: 'Any'
-    },
-    {
-        id: 2,
-        category: 'Mobile Accessory',
-        brand: 'Apple',
-        price: 60,
-        feature: 'Plastic cover',
-        condition: 'Refurbished',
-    },
-    {
-        id: 3,
-        category: 'Modern tech',
-        brand: 'Huwaie',
-        price: 90,
-        feature: '8 GB Ram',
-        condition: 'Brand new',
-    },
-    {
-        id: 4,
-        category: 'SmartPhones',
-        brand: 'Poco',
-        price: 100,
-        feature: 'Large memory',
-        condition: 'Old items',
-    }
-
-];
 
 const ListItem = () => {
    

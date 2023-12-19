@@ -102,12 +102,14 @@ import cameras from '../assets/images/camera.png';
 import headphone from '../assets/images/whiteheadPhones.png';
 import mobphone from '../assets/images/1.png';
 import banner from '../assets/images/banner.png';
+import emptycart from '../assets/images/emptycart.png';
 
 export {
   arrow,
   notfound,
   orangered,
   banner,
+  emptycart,
   payment,
   paypal,
   bg1,

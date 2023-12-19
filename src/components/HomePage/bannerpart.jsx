@@ -1,4 +1,4 @@
-import '../assets/css/index.scss';
+import React from "react";
 
 const BannerPart = ({value,className}) =>{
     return(

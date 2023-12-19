@@ -21,6 +21,41 @@ export const checklist = [
         text: ' Some great feature name here'
     }
 ]
+export   const aside = [
+    {
+        id:1,
+        image: images?.coat,
+        text: 'Men Blazers Sets Elegant Formal',
+        price: '$7.00 - $99.50'
+    },
+    {
+        id:2,
+        image: images?.tshirt,
+        text: 'Men Shirt Sleeve Polo Contrast',
+        price: '$7.00 - $99.50'
+
+    },
+    {
+        id:3,
+        image: images?.suite,
+        text: 'Apple Watch Series Space Gray',
+        price: '$7.00 - $99.50'
+    },
+    {
+        id:4,
+        image: images?.blue,
+        text: 'Basketball Crew Socks Long Stuff',
+        price: '$7.00 - $99.50'
+    },
+    {
+        id:5,
+        image: images?.bag,
+        text: 'New Summer Mens castrol T-Shirts',
+        price: '$7.00 - $99.50'
+
+    }
+]
+
 
 export const country = [
     {
@@ -458,6 +493,43 @@ export const imageItems = [
     }
 
 ]
+
+export const items = [
+    {
+        id: 1,
+        category: 'Electronics',
+        brand: 'Samsung',
+        price: 50,
+        feature: 'Metallic',
+        condition: 'Any'
+    },
+    {
+        id: 2,
+        category: 'Mobile Accessory',
+        brand: 'Apple',
+        price: 60,
+        feature: 'Plastic cover',
+        condition: 'Refurbished',
+    },
+    {
+        id: 3,
+        category: 'Modern tech',
+        brand: 'Huwaie',
+        price: 90,
+        feature: '8 GB Ram',
+        condition: 'Brand new',
+    },
+    {
+        id: 4,
+        category: 'SmartPhones',
+        brand: 'Poco',
+        price: 100,
+        feature: 'Large memory',
+        condition: 'Old items',
+    }
+
+];
+
 export const dataInfo = [
     {
         id: 1,

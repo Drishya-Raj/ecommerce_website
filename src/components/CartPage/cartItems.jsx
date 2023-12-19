@@ -1,9 +1,9 @@
-import * as images from './images';
+import * as images from "../images";
 import React, {useMemo} from 'react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { cartContext } from './pages/MyCart';
-import Button from './button';
+import { cartContext } from "./MyCart";
+import Button from '../button';
 import EmptyCart from './EmptyCart';
 
 const CartItems = () => {
@@ -11,21 +11,12 @@ const CartItems = () => {
     useMemo(() => {
         localStorage.setItem("addedItems", JSON.stringify(addedItems));
       }, [addedItems]);
-
-
-    // const [save , setSave] = useState(false);
    
     const removeItem = (id) => {
         const updatedItems = addedItems.filter((item) => item.id !== id);
         console.log("updatee", updatedItems);
         setAddedItems(updatedItems);
     };
-    // const saveItem = (id) => {
-    //   const saveditem =  addedItems.filter((item) => item.id === id);
-    //   setSave(saveditem);
-    //   console.log("saved item", saveditem);
-
-    //   };
 
     return (
         addedItems.length === 0 ? (

@@ -1,5 +1,5 @@
-import { imagess } from "./constants/array";
-import Button from "./button";
+import { imagess } from "../constants/array";
+import Button from "../button";
 import {Link } from "react-router-dom";
 
 const CheckOut = () => {

@@ -8,7 +8,6 @@ const ProductCart = () => {
             <ul>
                 {Products.map((item, index) => {
                     return <ProductRenderItem key={index} item={item} 
-                   
                     />
                 })}
             </ul>

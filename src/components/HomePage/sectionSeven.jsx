@@ -1,5 +1,5 @@
-import Button from "./button";
-import TextInput from "./textInput";
+import Button from "../button";
+import TextInput from "../textInput";
 
 const Seven = () => {
 
