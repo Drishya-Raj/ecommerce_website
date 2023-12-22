@@ -6,7 +6,6 @@
     border: none;
     list-style: none;
     outline: none;
-
 }
 
 @font-face {
@@ -77,14 +76,10 @@ a {
     display: none;
 }
 
-.material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 200,
-        'GRAD' 0,
-        'opsz' 20
-}
+.loader{
+  text-align: center;
 
+}
 //signup page
 .signup {
     margin: 0 auto;
@@ -219,6 +214,9 @@ a {
         background-color: rgb(230, 250, 254);
         margin-bottom: 10px;
 
+    }
+    ::placeholder {
+        color: #c5c7c9
     }
 
     button {
@@ -674,6 +672,7 @@ a {
             gap: 10px;
             border-left: 1px solid rgba(224, 224, 224, 1);
             width: 236px;
+            padding: 10px;
 
             button {
 
@@ -687,7 +686,9 @@ a {
             }
 
             .imgcontainer {
-                width: 140px;
+                width: 150px;
+                height: 170px;
+                padding: 20px;
 
                 img {
                     display: block;
@@ -752,10 +753,11 @@ a {
             }
 
             .img_container {
-                width:80px;
-                height: 80px;
+                
+               
                 img {
-                    width: 80px;
+                    max-width: 80px;
+                    max-height: 80px;
                     display: block;
                 }
             }
@@ -1516,7 +1518,8 @@ footer {
         li {
             display: flex;
             border-bottom: 1px solid #DEE2E7;
-            padding: 10px 0;
+            gap: 20px;
+            padding: 20px;
 
             .text {
                 display: flex;
@@ -1592,9 +1595,9 @@ footer {
             width: 30%;
 
             .img-container {
-                width: 100px;
-                height: 100px;
-                background-color: #DEE2E7;
+               max-width: 90px;
+               height: 160px;
+               
 
                 img {
                     display: block;
@@ -1844,6 +1847,13 @@ footer {
     }
 
 }
+//breadcrumb
+.breadcrumbs{
+    color:#888484;
+    .active{
+        color:#0067FF;
+    }
+}
 
 //navbar 3 for mobile details
 .navbar3 {
@@ -1855,23 +1865,6 @@ footer {
     background-color: #fefefe;
     width: 90%;
     margin: 0 auto;
-
-    .breadcrumbs>* {
-        display: inline-block;
-    }
-
-    .breadcrumbs .crumbs :after {
-        content: '>';
-        margin-left: 10px;
-
-    }
-
-    .breadcrumbs .crumb:last-child:after {
-        display: none;
-    }
-
-
-
 }
 
 //navbar 4
@@ -1978,6 +1971,7 @@ footer {
 
 //list view content
 .listviewcontent {
+    max-width: 100%;
 
     ul {
         display: flex;
@@ -2010,7 +2004,7 @@ footer {
             .content {
                 display: flex;
                 justify-content: space-between;
-                width:100%;
+                // width:100%;
 
                 #content {
                     font-weight: 600;
@@ -2458,7 +2452,7 @@ footer {
 
     .signin,
     .signup {
-        height: 100cm;
+        // height: 100cm;
 
         form {
             top: 50px;
@@ -3331,6 +3325,7 @@ footer {
         img {
             width: 100%;
             display: block;
+            
         }
     }
 
@@ -5127,7 +5122,7 @@ footer {
     font-size: 20px;
     color: black;
     margin: 0 auto;
-    padding: 10% 0;
+    padding: 5% 0;
 
     .back-to-login {
         background: $primary_color;
@@ -5145,7 +5140,7 @@ footer {
     background: white;
     margin: 0 auto;
     border: 1px solid #eaedf1;
-    padding: 30px;
+    padding: 80px;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
@@ -5156,6 +5151,10 @@ footer {
 
     h3 {
         margin-bottom: 30px;
+    }
+
+    footer{
+        margin-top: 10%;
     }
 
     .details {

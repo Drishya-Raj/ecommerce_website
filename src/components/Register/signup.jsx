@@ -4,7 +4,6 @@ import RegisterForm from "./Registerform";
 const SignUp = () => {
     const navigate= useNavigate();
     return(
-   
         <div className="signup">
             <RegisterForm
             type="signUp"

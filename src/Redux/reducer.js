@@ -1,4 +1,4 @@
-import { ADD_USER, ADD_EMAIL, ADD_PASSWORD, LOGIN_USER, ADD_TO_CART, FETCH_SUCCESS } from './actionTypes'
+import { ADD_USER, ADD_EMAIL, ADD_PASSWORD, LOGIN_USER, ADD_TO_CART, FETCH_SUCCESS, TOTAL_SUM, FILTER_DATA } from './actionTypes'
 
 const initialState = {
     // username : ''
@@ -6,7 +6,10 @@ const initialState = {
     emailId: localStorage.getItem('emailId'),
     passwords: localStorage.getItem('passwords'),
     isAuthenticated: false,
-    data: null
+    data: null,
+    cartItems: [],
+    total: 0,
+    filterData: []
 };
 
 const Reducers = (state = initialState, action) => {
@@ -40,13 +43,24 @@ const Reducers = (state = initialState, action) => {
         case ADD_TO_CART:
             return {
                 ...state,
-                cartItems: [...state.cartItems, action.payload],
+                cartItems: [...state.cartItems, action.payload]
             };
-        case FETCH_SUCCESS :
+        case FETCH_SUCCESS:
             return {
                 ...state,
-                data:action.payload
-            }    
+                data: action.payload
+            }
+        case TOTAL_SUM:
+            return {
+                ...state,
+                total: action.payload
+
+            }
+        case FILTER_DATA:
+            return {
+                ...state,
+                filterData: action.payload
+            }
 
         default:
             return state;

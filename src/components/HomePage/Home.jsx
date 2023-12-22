@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import BannerPart from './bannerpart';
-import LoginPage from "../pages/loginPage";
+import LoginPage from "./loginPage";
 import Button from "../button";
 import { flag, itemImages } from "../constants/array";
 import TextInput from "../textInput";
 import { Link } from 'react-router-dom';
 import { deals } from "../constants/array";
-import { cart } from "../constants/array";
 import * as images from '../images';
 import { sidebarList } from "../constants/array";
 import { timer } from "../constants/array";
@@ -17,17 +16,14 @@ import Service from "./service";
 import { service } from "../constants/array";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDataSuccess } from "../../Redux/action";
-
+import Card from "./card";
 
 const Main = () => {
-
   const data = useSelector((state) => state.data);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchDataSuccess(data));
-  },[dispatch])
-  
+  }, [dispatch])
 
   return (
     <div className="mainSection">
@@ -77,22 +73,23 @@ const Main = () => {
         </div>
         <div className="items">
           <ul>
-            {deals?.map((item) => {
-              const { id, image, text, btext } = item;
-              return (
+            {data?.map((item, index) => {
+              const { id, image, category, btext, price, } = item;
+              return index > 4 && index < 10 && (
                 <li className='deals-items' key={id} >
                   <div className='imgcontainer'>
                     <Link to="/mobdetails"><img src={image} alt="items" /></Link>
                   </div>
-                  <p>{text}</p>
-                  <Button value={btext} />
+                  <p>{category}</p>
+                  <Button value={price + '%'} />
                 </li>
-              )})}
+              )
+            })}
           </ul>
         </div>
       </ul>
-      <Offers bannerImage={images?.bg} title={"Home and Outdoors"} data={cart} />
-      <Offers bannerImage={images?.bg1} title={"Consumer electronics and gadgets"} data={itemImages} />
+      <Offers bannerImage={images?.bg} title={"Home and Outdoors"} />
+      <Offers bannerImage={images?.bg1} title={"Consumer electronics and gadgets"} />
       <div className="sectionfive">
         <img src={images?.rect} alt="images" />
         <div className="five">
@@ -123,13 +120,7 @@ const Main = () => {
           {data?.map((item) => {
             const { id, image, price, title } = item;
             return (<Link key={id} to='/productDetails'>
-              <li className="cartItems">
-                <div className='imgcontainer'>
-                  <img src={image} alt="images" />
-                </div>
-                <h4>{price}</h4>
-                <p>{title}</p>
-              </li>
+              <Card image={image} price={price} title={title} />
             </Link>)
           })}
         </ul>

@@ -14,16 +14,16 @@ const AsideItems = () => {
         <div className="aside">
             <ul>
                 <h4>You may like</h4>
-                {data?.map((item) => {
+                {data?.map((item,index) => {
                     const { id, image, title, price } = item;
-                    return (
+                    return index > 10 && (
                         <li key={id}>
                             <div className="img-container ">
                                 <img src={image} alt="images" />
                             </div>
                             <div className='text'>
                                 <p id="ptext">{title}</p>
-                                <p id="itext">{price}</p>
+                                <p id="itext">Price : ${price}</p>
                             </div>
                         </li>
                     )

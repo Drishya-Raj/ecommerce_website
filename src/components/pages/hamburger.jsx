@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import * as images from '../images';
 import { Link , useLocation} from 'react-router-dom';
-import Navbar from '../navbar';
 
 function Hamburger() {
     const [open, setOpen] = useState(false);

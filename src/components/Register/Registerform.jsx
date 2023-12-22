@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { auth } from "../../firebase";
 import { loginUser } from "../../Redux/action";
 import TextInput from "../textInput";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, json, useNavigate } from "react-router-dom";
 import Button from "../button";
 import { Alert } from "../modal/Alert";
 import { setEmailId, setPassword } from "../../Redux/action";
 import { view, hide } from "../images";
 import { setUsername } from "../../Redux/action";
+import Loading from "../Loader";
 
 const RegisterForm = ({ type, onSuccess }) => {
     const dispatch = useDispatch();
@@ -23,14 +24,15 @@ const RegisterForm = ({ type, onSuccess }) => {
     const [passwordError, setPasswordError] = useState('');
     const [usernameError, setUsernameError] = useState('');
     const [visible, setVisible] = useState('');
+    const [loading, setLoading] = useState(false);
+    const isAuthenticated = useSelector((state)=>state.isAuthenticated);
 
     useEffect(() => {
         dispatch(setEmailId(email));
         dispatch(setPassword(password));
+        dispatch(setUsername(username));
+    }, [dispatch, email, password, username]);
 
-    }, [dispatch]);
-
-    dispatch(setUsername(username));
     const validateUsername = () => {
         const usernameRegex = /^[a-zA-Z]+$/;
         (!usernameRegex.test(username)) ? setUsernameError(' Enter a valid username ') : setUsernameError('');
@@ -58,7 +60,7 @@ const RegisterForm = ({ type, onSuccess }) => {
                 return true;
             }
         }
-       
+
         return false;
     };
 
@@ -68,11 +70,14 @@ const RegisterForm = ({ type, onSuccess }) => {
     }
     const handleClick = async (e) => {
         e.preventDefault();
+        setLoading(true);
+
         if (username === '' || password === '' || email === '') {
             setError("Please enter all required fields");
             validateUsername();
             validateEmail();
             validatePassword();
+            setLoading(false);
 
             { showAlert ? (setShowAlert(false)) : setShowAlert(true) }
             return;
@@ -87,9 +92,11 @@ const RegisterForm = ({ type, onSuccess }) => {
                 userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
                 dispatch(loginUser({ isAuthenticated: true }));
+                localStorage.setItem(isAuthenticated,JSON.stringify(isAuthenticated));
             }
 
             dispatch(loginUser({ isAuthenticated: true }));
+            localStorage.setItem(isAuthenticated,JSON.stringify(isAuthenticated));
             setShowAlert(false);
             onSuccess && onSuccess();
         }
@@ -99,10 +106,23 @@ const RegisterForm = ({ type, onSuccess }) => {
 
             if (errorCode === "auth/email-already-in-use") {
                 setError("Email is already in use. Please use a different email.");
-                { showAlert ? (setShowAlert(false)) : setShowAlert(true) }
+                setShowAlert(!showAlert);
                 dispatch(loginUser({ isAuthenticated: false }));
+                localStorage.setItem(isAuthenticated,JSON.stringify(isAuthenticated));
+            } else if (errorCode === "auth/network-request-failed") {
+                setError("Network error. Please check your internet connection.");
+                setShowAlert(!showAlert);
+                dispatch(loginUser({ isAuthenticated: false }));
+                localStorage.setItem(isAuthenticated,JSON.stringify(isAuthenticated));
+            } else {
+                setError(errorMessage);
+                setShowAlert(!showAlert);
+                dispatch(loginUser({ isAuthenticated: false }));
+                localStorage.setItem(isAuthenticated,JSON.stringify(isAuthenticated));
             }
-            dispatch(loginUser({ isAuthenticated: false }))
+        }
+        finally {
+            setLoading(false);
         }
     }
 
@@ -146,6 +166,7 @@ const RegisterForm = ({ type, onSuccess }) => {
 
     return (
         <div className={type === "signIn" ? 'signIn' : 'signup'}>
+            {loading && <Loading />}
             {showAlert && <Alert message={{ maincolor: '#e91616;', title: 'Error', text: error }} />}
             <form>
                 <h2>{type === 'signIn' ? "Let's Get Started, Login here !" : 'Register Now'}</h2>
@@ -156,7 +177,6 @@ const RegisterForm = ({ type, onSuccess }) => {
                             <label htmlFor={item.label}>{item.label}</label>
                             {item?.visible && <img src={item.visible} alt="image" width="20px" onClick={toggleVisibility} />}
                         </div>
-
                         <TextInput
                             type={item.type}
                             placeholder={item.placeholder}
@@ -172,24 +192,22 @@ const RegisterForm = ({ type, onSuccess }) => {
                         <br />
                     </ul>
                 ))}
-                <br />
                 {type == 'signUp' ?
-                    (<>
-
-                        <Button value="Sign Up" className="submit" onClick={handleClick} />
-                    </>) :
-                    (
-                        <Button value="Login" className="submit" onClick={handleClick} />)}
+                    (<Button value="Sign Up" className="submit" onClick={handleClick} />) :
+                    (<Button value="Login" className="submit" onClick={handleClick} />)}
                 {type === "signUp" ?
-                    (<><h4>Already have an account ?</h4>
-                        <br />
+                    (<>
+                        <h4>Already have an account ?</h4><br />
                         <Link to='/signIn'>
                             <Button value="Sign In" className="submit" />
                         </Link>
-
                     </>
                     ) : (
-                        <><p>Not having an account ?</p><Link to='/signUp'> <Button value="Sign Up" className="submit" /></Link></>)}
+                        <><p>Not having an account ?</p>
+                            <Link to='/signUp'>
+                                <Button value="Sign Up" className="submit" />
+                            </Link>
+                        </>)}
             </form>
         </div>
     )

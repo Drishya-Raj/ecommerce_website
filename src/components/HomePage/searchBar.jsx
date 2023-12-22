@@ -3,7 +3,7 @@ import TextInput from "../textInput";
 
 const SearchBar = () => {
     const [searchInput, setSearchInput] = useState('');
-    console.log('searchinput==>',searchInput);
+  
     return (
         <TextInput
             type="text"

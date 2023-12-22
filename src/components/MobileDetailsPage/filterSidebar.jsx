@@ -20,7 +20,6 @@ export const FilterSidebar = ({ title, className, options, selectedOptions, onOp
                                 <input
                                     type="checkbox"
                                     id={option}
-                                    checked={selectedOptions.includes(option)}
                                     onChange={() => onOptionChange(option)}
                                 />
                                 <p>{option}</p>

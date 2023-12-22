@@ -1,4 +1,4 @@
-import { ADD_EMAIL, ADD_PASSWORD, ADD_TO_CART, ADD_USER, LOGIN_USER , FETCH_SUCCESS} from "./actionTypes";
+import { ADD_EMAIL, ADD_PASSWORD, ADD_TO_CART, ADD_USER, LOGIN_USER , FETCH_SUCCESS,TOTAL_SUM,FILTER_DATA} from "./actionTypes";
 
 export const setUsername = (username) => {
     return{
@@ -25,13 +25,21 @@ export const loginUser = (isAuthenticated) => ({
     payload: isAuthenticated
   });
 
-export const setAddedItems = (addedItems) =>({
+export const setCartItems = (cartItems) =>({
     type: ADD_TO_CART,
-    payload :addedItems
+    payload :cartItems
 })
 
 export const fetchDataSuccess = (data) => ({
     type : FETCH_SUCCESS,
     payload : data
+})
+export const setTotal = (total) =>({
+    type: TOTAL_SUM,
+    payload: total
+})
+export const setFilterData = (filterData) =>({
+    type:FILTER_DATA,
+    payload: filterData,
 })
  

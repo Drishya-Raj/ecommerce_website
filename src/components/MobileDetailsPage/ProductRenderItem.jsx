@@ -1,27 +1,25 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
-const ProductRenderItem = ({item, favorite, wishlist}) => {
+const ProductRenderItem = ({ item, favorite, wishlist }) => {
 
     const [isFavorited, setIsFavorited] = useState(false);
-    // const [favorites, setFavorites] = useState([]);
     const toggleFavorite = () => {
         setIsFavorited(!isFavorited);
     }
-    const { image, price1, oldprice, title, category,  } = item;
+    const { image,title, category, } = item;
     return (
+
         <li>
             <div className="imagecontainer">
-                <img src={image} alt="images" />
+                <Link to="/productDetails">
+                    <img src={image} alt="images" />
+                </Link>
             </div>
             <div className='text'>
                 <div className="flex-items">
-                    <div className='price'>
-                        <p>{price1}</p>
-                        <s>{oldprice}</s>
-                    </div>
                     <p>{category}</p>
-                    {/* <img src={star} alt="rating" /> */}
                     <p>{title}</p>
                 </div>
                 {isFavorited ?
@@ -36,7 +34,6 @@ const ProductRenderItem = ({item, favorite, wishlist}) => {
                     )}
             </div>
         </li>
-
     )
 }
 export default ProductRenderItem;

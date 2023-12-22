@@ -6,26 +6,33 @@ import Breadcrumbs from "./BreadCrumb";
 import Navbar from "../navbar";
 import NavItem from "../navItems";
 import { useDispatch, useSelector } from "react-redux";
-import ProductRenderItem from "../ProductRenderItem";
-import { fetchDataSuccess } from "../../Redux/action";
+import ProductRenderItem from './ProductRenderItem';
+import { fetchDataSuccess, setFilterData } from "../../Redux/action";
 import ListViewContent from './listViewContent';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import TextInput from '../textInput';
 
 
 const MobDetails = () => {
-
     const data = useSelector((state) => state.data);
+    const filterData = useSelector((state) => state.filterData);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const isGridView = false;
+    const [isGridView, setIsGridView] = useState(true);
+    const [filteredItems, setFilteredItems] = useState(data);
 
     useEffect(() => {
         dispatch(fetchDataSuccess(data));
-    }, [dispatch])
+        dispatch(setFilterData(filterData));
+        setFilteredItems(filterData && filterData.length > 0 ? filterData : data);
+    }, [dispatch, data, filterData]);
+
+    const toggleView = () => {
+        setIsGridView(!isGridView);
+    };
 
     return (
         <div className="mobDetails">
-            <Navbar search={true} />
+            <Navbar />
             <NavItem />
             <div className="navbar3">
                 <Breadcrumbs />
@@ -38,55 +45,50 @@ const MobDetails = () => {
                             <p>12,911 items in <b>Mobile accessory</b></p>
                         </div>
                         <div className="flexss">
-                            <p>
-                                <input
-                                    type="checkbox" />
-                                verified
-                            </p>
+                            <TextInput type="checkbox" value='verified' />
+                            <span>verified</span>
                             <label htmlFor="feature">Featured
                                 <select></select></label>
                             <div className='imgContainer'>
-                                <Link to="/listview"><img src={images?.listview} alt="listview" />{' '} </Link>
-                                <Link to="/gridview" ><img src={images?.gridview} alt="gridview" />{' '}</Link>
+                                <div onClick={toggleView}>
+                                    {isGridView ? (<img src={images.listview} />) : <img src={images.gridview} />}
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="productCart">
+                    {isGridView ? (
+                        <div className="productCart">
+
                             <ul>
-                                {data.map((item, index) => {
-                                    return <ProductRenderItem
-                                        key={index}
-                                        item={item}
-                                        wishlist={images.fav1}
-                                        favorite={images.favorite}
-                                    />
+                                {filteredItems?.map((item, index) => {
+                                    return index <= 8 &&
+                                        <ProductRenderItem
+                                            key={index}
+                                            item={item}
+                                            wishlist={images.fav1}
+                                            favorite={images.favorite}
+                                        />
                                 })}
                             </ul>
                         </div>
-                    {/* <div className={isGridView ? 'productCart' : 'filter'}>
-                        ( <div className="productCart">
-                            <ul>
-                                {data.map((item, index) => {
-                                    return <ProductRenderItem
-                                        key={index}
-                                        item={item}
-                                        wishlist={images.fav1}
-                                        favorite={images.favorite}
-                                    />
-                                })}
-                            </ul>
-                        </div>): (<div className='filter'>
+                    ) : (
+                        <div className='filter'>
                             <div className="listviewcontent">
                                 <ul>
-                                    {data.map((item, index) => {
-                                        return (
-                                            <ListViewContent key={index} item={item} wishlist={images.fav1} favorite={images.favorite} />
+                                    {filteredItems?.map((item, index) => {
+                                        return index > 0 && index < 5 && (
+                                            <ListViewContent
+                                                key={index}
+                                                item={item}
+                                                wishlist={images.favorite}
+                                                favorite={images.fav1}
+                                            />
                                         )
                                     })}
                                 </ul>
                             </div>
-                        </div>)
-                    </div> */}
+                        </div>
+                    )}
                 </div>
             </div>
             <Seven />
