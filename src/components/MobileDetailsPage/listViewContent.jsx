@@ -1,33 +1,39 @@
 import * as images from "../images";
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-
+import React, { useContext, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { cartContext } from "../../Router";
 
 const ListViewContent = ({ item, wishlist, favorite }) => {
 
     const [isFavorited, setIsFavorited] = useState(false);
+  const {setProductId} = useContext(cartContext);
+   const navigate = useNavigate();
     const toggleFavorite = () => {
         setIsFavorited(!isFavorited);
     }
+    const navigateToProduct = () => {
+        navigate('/productDetails')
+        { id && setProductId(id) }
 
-    const { image, price, link, description } = item;
+    }
+    const { image, price, link, description,id } = item;
     return (
 
         <div className='filter'>
             <div className="listviewcontent">
                 <ul>
-                    <li>
+                    <li key={id}>
                         <div className='imgContainer'>
-                            <Link to="/productDetails">
+                            <div onClick={navigateToProduct} >
                                 <img src={image} alt="images" />
-                            </Link>
+                            </div>
                         </div>
                         <div className='content'>
                             <div className='items'>
-                                <p id="content">{price}</p>
+                                <p id="content"></p>
                                 <div className='price'>
-                                    <h4>$ 991.8</h4>
-                                    <h5>{price}</h5>
+                                    <h4>{price}</h4>
+                                    <h5>$ 991.8 </h5>
                                 </div>
                                 <div className='rating'>
                                     <img src={images.star} alt="rating" className='star' />

@@ -3,26 +3,21 @@ import CartItems from "./cartItems";
 import CheckOut from "./checkout";
 import Seven from "../HomePage/sectionSeven";
 import Button from "../button";
-import { save } from "../constants/array";
 import { DeliveryItems } from "../constants/renderItems";
 import Navbar from "../navbar";
 import { cartContext } from "../../Router";
+import { useSelector } from "react-redux";
 
 const MyCart = () => {
-    const [buttontext, setButtontext] = useState(save);
     const { addedItems, setAddedItems } = useContext(cartContext);
+    const cartItems = useSelector((state) => state.cartItems);
     const addToCart = (index) => {
-        const updatedBtext = [...buttontext];
-        const newItem = updatedBtext[index];
-
+        const updatedItem = [...cartItems];
+        const newItem = updatedItem[index];
         if (!addedItems.some((item) => item.id === newItem.id)) {
             setAddedItems((prevItems) => [...prevItems, newItem]);
-            localStorage.setItem("addedItems", JSON.stringify(addedItems));
         }
-        newItem.button = newItem.button === "Move to cart" ? "Added" : "Move to cart";
-        setButtontext(updatedBtext);
     };
-
     return (
         <div className="mycart">
             <Navbar search={false} />
@@ -40,20 +35,23 @@ const MyCart = () => {
                 </div>
             </div>
             <DeliveryItems />
+            
             <div className="savedItem">
+            <h2>Saved for Later</h2><br/>
                 <ul>
-                    {save.map((item, index) => {
-                        const { id, image, price, text, button } = item;
+                    {cartItems.map((item, index) => {
+                        const { id, image, price, title, category, button } = item;
                         return (
                             <li key={id}>
                                 <div className='imgcontainer'>
                                     <img src={image} alt="images" />
                                 </div>
                                 <div className='content'>
-                                    <h4>{price}</h4>
-                                    <p>{text}</p>
+                                    <h4>${price}</h4>
+                                    <p>{title}</p>
+                                    <p>{category}</p>
                                     <button className="cartbutton" onClick={() => addToCart(index, id)}>
-                                        <i class="fa-solid fa-cart-shopping"></i>{button}
+                                        <i class="fa-solid fa-cart-shopping"></i>Move to cart
                                     </button>
                                 </div>
                             </li>

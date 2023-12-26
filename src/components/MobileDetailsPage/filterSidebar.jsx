@@ -1,5 +1,5 @@
 import { useState } from "react";
-export const FilterSidebar = ({ title, className, options, selectedOptions, onOptionChange, }) => {
+export const FilterSidebar = ({ title, className, options, selectedOptions,checked,onClick, onOptionChange, }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleToggle = () => {
@@ -21,6 +21,8 @@ export const FilterSidebar = ({ title, className, options, selectedOptions, onOp
                                     type="checkbox"
                                     id={option}
                                     onChange={() => onOptionChange(option)}
+                                    checked={checked}
+                                    
                                 />
                                 <p>{option}</p>
                             </li>
@@ -28,8 +30,6 @@ export const FilterSidebar = ({ title, className, options, selectedOptions, onOp
                     </ul>
                 )}
             </div>
-
         </div>
-
     );
 };

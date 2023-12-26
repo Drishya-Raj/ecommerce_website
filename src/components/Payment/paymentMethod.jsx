@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TextInput from '../textInput';
 import Button from '../button';
 import { imagess,creditcard } from '../constants/array';
 
 function PaymentMethod({checked, setChecked, handleSubmit}) {
+    
     return (
         <div className="payment-method">
             <h4>Payment Method</h4>

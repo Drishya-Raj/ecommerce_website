@@ -6,18 +6,12 @@ import { cartContext } from "../../Router";
 import { useDispatch } from "react-redux";
 import { setTotal } from "../../Redux/action";
 
-
 const CheckOut = () => {
-  const { addedItems, setAddedItems } = useContext(cartContext);
+  const { addedItems} = useContext(cartContext);
   console.log("addedItems in checkout page", addedItems);
   const dispatch = useDispatch();
-
-  const parsePrice = (priceString) => {
-    return Number(priceString.replace("$", ""));
-  };
-
   const calculateSubtotal = (addedItems) => {
-    const subtotal = addedItems.reduce((total, num) => total + parsePrice(num.price), 0);
+    const subtotal = addedItems.reduce((total, num) => total + (num.price), 0);
     dispatch(setTotal(subtotal - 60 + 14));
     return subtotal;
   }

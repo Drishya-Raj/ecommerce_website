@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import * as images from '../images';
-import { Link , useLocation} from 'react-router-dom';
+import { Link , useLocation ,useNavigate} from 'react-router-dom';
 
 function Hamburger() {
     const [open, setOpen] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
     console.log("path==", location.pathname);
     const showHamburger =
         location.pathname !== '/' &&
@@ -32,9 +33,9 @@ function Hamburger() {
                                 Home
                             </p>
                         </Link>
-                        <p>
+                        <p onClick={()=>navigate('/listItems')}>
                             <i className="fa-solid fa-bars"></i>
-                            categories
+                            categories 
                         </p>
 
                         <p>

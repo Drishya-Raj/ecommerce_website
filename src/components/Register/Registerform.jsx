@@ -2,17 +2,16 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { auth } from "../../firebase";
-import { loginUser } from "../../Redux/action";
+import { loginUser,setUsername, setEmailId, setPassword } from "../../Redux/action";
 import TextInput from "../textInput";
-import { Link, Navigate, json, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import Button from "../button";
 import { Alert } from "../modal/Alert";
-import { setEmailId, setPassword } from "../../Redux/action";
 import { view, hide } from "../images";
-import { setUsername } from "../../Redux/action";
 import Loading from "../Loader";
 
 const RegisterForm = ({ type, onSuccess }) => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [username, setUsernames] = useState('');
     const [password, setPasswords] = useState('');
@@ -25,7 +24,7 @@ const RegisterForm = ({ type, onSuccess }) => {
     const [usernameError, setUsernameError] = useState('');
     const [visible, setVisible] = useState('');
     const [loading, setLoading] = useState(false);
-    const isAuthenticated = useSelector((state)=>state.isAuthenticated);
+    const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
     useEffect(() => {
         dispatch(setEmailId(email));
@@ -60,7 +59,6 @@ const RegisterForm = ({ type, onSuccess }) => {
                 return true;
             }
         }
-
         return false;
     };
 
@@ -78,7 +76,6 @@ const RegisterForm = ({ type, onSuccess }) => {
             validateEmail();
             validatePassword();
             setLoading(false);
-
             { showAlert ? (setShowAlert(false)) : setShowAlert(true) }
             return;
         }
@@ -92,11 +89,10 @@ const RegisterForm = ({ type, onSuccess }) => {
                 userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
                 dispatch(loginUser({ isAuthenticated: true }));
-                localStorage.setItem(isAuthenticated,JSON.stringify(isAuthenticated));
+                // localStorage.setItem(isAuthenticated, JSON.stringify(isAuthenticated));
             }
-
             dispatch(loginUser({ isAuthenticated: true }));
-            localStorage.setItem(isAuthenticated,JSON.stringify(isAuthenticated));
+            // localStorage.setItem(isAuthenticated, JSON.stringify(isAuthenticated));
             setShowAlert(false);
             onSuccess && onSuccess();
         }
@@ -108,59 +104,40 @@ const RegisterForm = ({ type, onSuccess }) => {
                 setError("Email is already in use. Please use a different email.");
                 setShowAlert(!showAlert);
                 dispatch(loginUser({ isAuthenticated: false }));
-                localStorage.setItem(isAuthenticated,JSON.stringify(isAuthenticated));
+                localStorage.setItem(isAuthenticated, JSON.stringify(isAuthenticated));
             } else if (errorCode === "auth/network-request-failed") {
                 setError("Network error. Please check your internet connection.");
                 setShowAlert(!showAlert);
                 dispatch(loginUser({ isAuthenticated: false }));
-                localStorage.setItem(isAuthenticated,JSON.stringify(isAuthenticated));
             } else {
                 setError(errorMessage);
                 setShowAlert(!showAlert);
                 dispatch(loginUser({ isAuthenticated: false }));
-                localStorage.setItem(isAuthenticated,JSON.stringify(isAuthenticated));
             }
         }
         finally {
             setLoading(false);
         }
     }
-
     const textiInputs = [
         {
-            id: 1,
-            label: 'Username',
-            type: "text",
-            value: username,
-            placeholder: "Enter Username",
-            className: username ? "input1" : "input",
+            id: 1,label: 'Username', type: "text",value: username,placeholder: "Enter Username", className: username ? "input1" : "input",
             onChange: (e) => setUsernames(e.target.value),
             onInput: validateUsername,
             errormsg: usernameError
         },
         {
 
-            id: 2,
-            label: 'Email id',
-            text: "text",
-            className: email ? "input1" : "input",
-            placeholder: "Enter Email",
-            value: email,
+            id: 2, label: 'Email id', text: "text",className: email ? "input1" : "input",placeholder: "Enter Email", value: email,
             onChange: (e) => setEmail(e.target.value),
             onInput: validateEmail,
             errormsg: emailError
         },
         {
-            id: 3,
-            label: 'Password',
-            type: showPassword ? "text" : "password",
-            placeholder: "Enter Password",
-            value: password,
+            id: 3,label: 'Password',type: showPassword ? "text" : "password",  placeholder: "Enter Password",value: password,className: password ? "input1" : "input",errormsg: passwordError,
+            visible: visible ? view : hide,
             onChange: (e) => setPasswords(e.target.value),
             onInput: validatePassword,
-            className: password ? "input1" : "input",
-            errormsg: passwordError,
-            visible: visible ? view : hide
         }
     ]
 
@@ -192,21 +169,15 @@ const RegisterForm = ({ type, onSuccess }) => {
                         <br />
                     </ul>
                 ))}
-                {type == 'signUp' ?
-                    (<Button value="Sign Up" className="submit" onClick={handleClick} />) :
-                    (<Button value="Login" className="submit" onClick={handleClick} />)}
+                {type == 'signUp' ?(<Button value="Sign Up" className="submit" onClick={handleClick} />) : (<Button value="Login" className="submit" onClick={handleClick} />)}
                 {type === "signUp" ?
                     (<>
                         <h4>Already have an account ?</h4><br />
-                        <Link to='/signIn'>
-                            <Button value="Sign In" className="submit" />
-                        </Link>
+                        <Button value="Sign In" className="submit" onClick={() => navigate('/signIn')} />
                     </>
                     ) : (
                         <><p>Not having an account ?</p>
-                            <Link to='/signUp'>
-                                <Button value="Sign Up" className="submit" />
-                            </Link>
+                            <Button value="Sign Up" className="submit" onClick={() => navigate('/signUp')} />
                         </>)}
             </form>
         </div>

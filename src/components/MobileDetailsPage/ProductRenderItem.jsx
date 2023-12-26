@@ -1,26 +1,36 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { cartContext } from "../../Router";
 
 const ProductRenderItem = ({ item, favorite, wishlist }) => {
 
     const [isFavorited, setIsFavorited] = useState(false);
+    const {  setProductId } = useContext(cartContext);
+    const navigate = useNavigate();
+
     const toggleFavorite = () => {
         setIsFavorited(!isFavorited);
     }
-    const { image,title, category, } = item;
+   
+    const navigateToProduct = () => {
+        navigate('/productDetails')
+        { id && setProductId(id) }
+     
+    }
+    const { image, title, category, price, id } = item;
     return (
 
         <li>
             <div className="imagecontainer">
-                <Link to="/productDetails">
+                <div onClick={navigateToProduct} >
                     <img src={image} alt="images" />
-                </Link>
+                </div>
             </div>
             <div className='text'>
                 <div className="flex-items">
                     <p>{category}</p>
                     <p>{title}</p>
+                    <p>{price}</p>
                 </div>
                 {isFavorited ?
                     (<span onClick={toggleFavorite}>

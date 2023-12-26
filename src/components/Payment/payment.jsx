@@ -43,7 +43,7 @@ const Payment = () => {
             <Navbar />
             <div className="payment">
             <h3>Billing details</h3>
-              <BillingDetails />
+              <BillingDetails/>
                 <ShippingDetails setChecked={setChecked} checked={checked} checkedItem={checkedItem} setCheckedItem={setCheckedItem}/>
                 <div className="shipping-method">
                     <h4>Shipping method</h4>

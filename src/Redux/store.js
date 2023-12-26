@@ -4,9 +4,9 @@ import thunk from 'redux-thunk';
 
 const store = createStore(Reducers, applyMiddleware(thunk));
 
-// store.subscribe(()=>{
-//     console.log("current state===>",store.getState());
+store.subscribe(()=>{
+    console.log("current state===>",store.getState());
     
-// })
+})
 
 export default store;

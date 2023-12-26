@@ -6,6 +6,8 @@
     border: none;
     list-style: none;
     outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 @font-face {
@@ -76,10 +78,11 @@ a {
     display: none;
 }
 
-.loader{
-  text-align: center;
+.loader {
+    text-align: center;
 
 }
+
 //signup page
 .signup {
     margin: 0 auto;
@@ -215,6 +218,7 @@ a {
         margin-bottom: 10px;
 
     }
+
     ::placeholder {
         color: #c5c7c9
     }
@@ -469,11 +473,34 @@ a {
     cursor: pointer;
     padding-bottom: 50px;
 
+    .search {
+        width: 60%;
+
+        ul {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 54%;
+            z-index: 1;
+
+            li {
+                background: #d7faef;
+                font-size: 18px;
+                padding: 10px;
+            }
+
+            li:hover {
+                cursor: pointer;
+                font-style: bold;
+                background: #a0e4cf;
+            }
+        }
+    }
+
     .search-items {
         border: 1px solid rgba(13, 110, 253, 1);
         display: flex;
         justify-content: space-between;
-        width: 60%;
         text-align: center;
         padding-left: 5px;
 
@@ -753,8 +780,8 @@ a {
             }
 
             .img_container {
-                
-               
+
+
                 img {
                     max-width: 80px;
                     max-height: 80px;
@@ -1262,7 +1289,8 @@ footer {
         .imgContainer {
             border: 1px solid #DEE2E7;
             border-radius: 4px;
-
+            width: 250px;
+            padding: 20px;
             img {
                 display: block;
                 width: 100%;
@@ -1271,15 +1299,15 @@ footer {
     }
 
     .parts {
-        display: flex;
-        gap: 20px;
-        padding-top: 20px;
-        overflow-x: scroll;
-        width: 90%;
+        // display: flex;
+        // gap: 20px;
+        // padding-top: 20px;
+        // overflow-x: scroll;
+        // width: 90%;
 
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        // &::-webkit-scrollbar {
+        //     display: none;
+        // }
 
         img {
             background-color: #E0E0E0;
@@ -1307,7 +1335,13 @@ footer {
 
         .rating {
             display: flex;
-            gap: 10px;
+            align-items: center;
+            gap: 20px;
+            .rate{
+                display: flex;
+                gap:5px;
+                align-items: center;
+            }
 
             h4 {
                 color: #FF9017;
@@ -1403,6 +1437,16 @@ footer {
             color: #0D6EFD;
             font-weight: 100;
         }
+        .cart{
+            border-radius: 5px;
+            padding: 10px 14px;
+            background-color: #91eefe;
+            color:navy;
+            &:hover{
+                background-color: #0D6EFD;
+            }
+        }
+
     }
 
     .send {
@@ -1541,8 +1585,8 @@ footer {
 
             .img-container {
 
-              max-width: 60px;
-              max-height: 90px;
+                max-width: 60px;
+                max-height: 90px;
 
                 img {
                     display: block;
@@ -1595,9 +1639,9 @@ footer {
             width: 30%;
 
             .img-container {
-               max-width: 90px;
-               height: 160px;
-               
+                max-width: 90px;
+                height: 160px;
+
 
                 img {
                     display: block;
@@ -1730,10 +1774,6 @@ footer {
     gap: 50px;
     margin: 0 auto;
 
-    .search {
-        display: none;
-    }
-
     .middle {
         display: flex;
         width: 90%;
@@ -1793,16 +1833,19 @@ footer {
     .slider {
         display: flex;
 
-        .input {
-            width: 50px;
-
+        .inputmin {
+            width: 65px;
+            rotate: 180deg;
         }
 
+        .inputmax {
+            width: 65px;
+        }
     }
 
     .price-range {
-        display: flex;
-        gap: 8px;
+        // display: flex;
+        // gap: 8px;
         margin-bottom: 10px;
 
         span {
@@ -1810,6 +1853,15 @@ footer {
             padding: 5px 8px;
             border-radius: 6px;
             width: 50px;
+        }
+
+        .apply {
+            border-radius: 6px;
+            display: block;
+            margin-top: 20px;
+            margin-top: 20px;
+            padding: 10px 30px;
+            background: #cceffa;
         }
 
         .textInput {
@@ -1834,7 +1886,7 @@ footer {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding-bottom: 20px;
+        padding-bottom: 30px;
         align-items: flex-start;
 
         li {
@@ -1847,11 +1899,13 @@ footer {
     }
 
 }
+
 //breadcrumb
-.breadcrumbs{
-    color:#888484;
-    .active{
-        color:#0067FF;
+.breadcrumbs {
+    color: #888484;
+
+    .active {
+        color: #0067FF;
     }
 }
 
@@ -2075,6 +2129,7 @@ footer {
     gap: 80px;
 
 
+
     .flex {
         display: flex;
         justify-content: space-around;
@@ -2219,6 +2274,8 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        width: 100%;
+   
         padding: 10px;
         border: 1px solid #DEE2E7;
         border-radius: 6px;
@@ -2243,7 +2300,8 @@ footer {
             .content {
                 display: flex;
                 justify-content: space-between;
-                gap: 500px;
+        
+                
 
                 select {
                     font-size: 16px;
@@ -2342,24 +2400,28 @@ footer {
 .savedItem {
     width: 90%;
     margin: 0 auto;
-
-
+  
     ul {
         display: flex;
-        justify-content: space-between;
+        gap:20px;
+        overflow-x: hidden;
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         li {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            width:40%;
             border: 1px solid #DEE2E7;
             padding: 15px;
             border-radius: 4px;
             box-shadow: 1px 1px 2px #DEE2E7;
 
             .imgcontainer {
-                width: 150px;
-                height: 180px;
+                width: 140px;
+                height: 250px;
                 margin: 0 auto;
 
                 img {
@@ -2385,6 +2447,9 @@ footer {
 
                     i {
                         padding-right: 5px;
+                    }
+                    &:hover{
+                        background-color: #127FFF;
                     }
                 }
             }
@@ -2556,8 +2621,12 @@ footer {
     }
 
     .navContainer {
-        .search-items {
-            width: 40%;
+        .search {
+            width: 49%;
+
+            ul {
+                width: 44%;
+            }
         }
     }
 
@@ -3271,14 +3340,6 @@ footer {
     .signup,
     .signin {
 
-        // form {
-        //     width: 100%;
-        //     box-shadow: none;
-        //     top: 30px;
-        //     left: 0px;
-        //     gap: 0;
-        // }
-
         .error {
             font-size: 12px;
         }
@@ -3301,11 +3362,16 @@ footer {
         }
 
     }
+
+    .payment {
+        width: 100%;
+        border: none;
+    }
 }
 
 //empty cart 
 .emptycart {
-    
+
     justify-content: center;
     align-items: center;
     gap: 30px;
@@ -3325,7 +3391,7 @@ footer {
         img {
             width: 100%;
             display: block;
-            
+
         }
     }
 
@@ -5068,6 +5134,9 @@ footer {
     .mask {
         margin-top: 50px;
     }
+    .breadcrumbs{
+        display: none;
+    }
 
     .hamburger {
         display: block;
@@ -5112,6 +5181,8 @@ footer {
     .Mens {
         margin-top: 60px;
     }
+
+
 }
 
 .notfound {
@@ -5136,24 +5207,24 @@ footer {
 
 //payment
 .payment {
-    width: 70%;
+    max-width: 70%;
     background: white;
     margin: 0 auto;
-    border: 1px solid #eaedf1;
-    padding: 80px;
+    // padding: 80px;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 30px;
-    border: 1px solid rgb(9, 163, 163);
+    // border: 1px solid rgb(9, 163, 163);
 
 
     h3 {
         margin-bottom: 30px;
+        padding-top: 8%;
     }
 
-    footer{
+    footer {
         margin-top: 10%;
     }
 
@@ -5162,7 +5233,8 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         column-gap: 20px;
         row-gap: 20px;
-
+        // border: 1px solid #eaedf1;
+        // border-radius: 6px;
 
         .input {
             border: 1px solid #DEE2E7;

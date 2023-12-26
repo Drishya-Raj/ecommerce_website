@@ -1,23 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Seven from "../HomePage/sectionSeven";
 import Button from "../button";
 import ProductDescription from "../MensPage/ProductDecsription";
 import Navbar from "../navbar";
 import NavItem from "../navItems";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDataSuccess } from "../../Redux/action";
+import { fetchDataSuccess, setCartItems, setProductId } from "../../Redux/action";
 import * as images from '../images';
-import { imageItems } from "../constants/array";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { reviews, priceDetails, tableDetails, supplier } from "../constants/array";
+import { cartContext } from "../../Router";
+import { Alert } from "../modal/Alert";
 
 const ProductDetails = () => {
     const data = useSelector((state) => state.data);
+    const cartItems = useSelector((state) => state.cartItems);
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchDataSuccess(data));
-    }, [dispatch]);
+    const { productId } = useContext(cartContext);
+    const [items, setItems] = useState();
+    const [buttonText, setButtonText] = useState("Save for Later");
+    const [showAlert, setShowAlert] = useState(false);
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        productId && data?.map((item) => {
+            return productId === item?.id && setItems(item);
+        })
+    }, [productId])
+  
+    const addToCart = () => {
+        if (items) {
+            const isItemInCart = cartItems.some(item => item.id === items.id);
+          {isItemInCart?setShowAlert(true):dispatch(setCartItems(items) ) && setButtonText("Saved");}
+          
+        }
+    }
     return (
         <div className="productdetails">
             <Navbar search={false} />
@@ -25,31 +42,37 @@ const ProductDetails = () => {
             <div className="Mens">
                 <div className="tshirt">
                     <Link to="/myCart">
-                        <div className="imgContainer">
-                            <img src={images?.tshirts} alt="image34" />
+
+                        <div className="imgContainer" >
+                            {items &&
+                                <> <img src={items.image} alt="image" /><br />
+                                    <b>{items?.category}</b>
+                                    <p> {items?.description}</p></>
+                            }
+
                         </div>
+
                     </Link>
                     <div className="parts">
-                        {imageItems?.map((item) => {
+                        {/* {items && items?.map((item) => {
                             const { key, image } = item;
                             return (
                                 <img key={key} src={image} alt="images" />);
-                        })}
+                        })} */}
+
                     </div>
                 </div>
                 <div className="info">
-                    <p>
-                        <img src={images?.tick} alt="check" /> In stock
-                    </p>
-                    <h4>Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle</h4>
+                    <p><img src={images?.tick} alt="check" /> In stock</p>
+                    <h4>{items && items.title}</h4>
                     <div className='middle'>
                         <div className="rating">
                             {reviews.map((item) => {
                                 const { id, image, text } = item;
                                 return (
-                                    <div key={id}>
+                                    <div key={id} className="rate">
                                         <img src={image} alt="images" />
-                                        <p>{text}</p>
+                                        <span>{text}</span>
                                     </div>
                                 )
                             })}
@@ -99,9 +122,11 @@ const ProductDetails = () => {
                         </div>
                     </div>
                     <div className="save">
-                        <img src={images?.fav} alt="fav" />
-                        <h3> Save for later</h3>
+                        {/* <img src={images?.fav} alt="fav" /> */}
+                     <Button className="cart" value={buttonText} onClick={addToCart} />
+                        {showAlert && <Alert message={{ maincolor: '#e91616;', title: 'Item already in Cart' }} />}
                     </div>
+                    
                 </div>
             </div>
             <ProductDescription />

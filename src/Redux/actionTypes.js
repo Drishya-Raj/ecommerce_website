@@ -6,3 +6,4 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const TOTAL_SUM = 'TOTAL_SUM';
 export const FILTER_DATA = 'FILTER_DATA';
+export const ORDER_ITEM ='ORDER_ITEM,';

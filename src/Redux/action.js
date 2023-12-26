@@ -1,4 +1,4 @@
-import { ADD_EMAIL, ADD_PASSWORD, ADD_TO_CART, ADD_USER, LOGIN_USER , FETCH_SUCCESS,TOTAL_SUM,FILTER_DATA} from "./actionTypes";
+import { ADD_EMAIL, ADD_PASSWORD, ADD_TO_CART, ADD_USER, LOGIN_USER , FETCH_SUCCESS,TOTAL_SUM,FILTER_DATA,ORDER_ITEM} from "./actionTypes";
 
 export const setUsername = (username) => {
     return{
@@ -42,4 +42,9 @@ export const setFilterData = (filterData) =>({
     type:FILTER_DATA,
     payload: filterData,
 })
+export const orderCart = (cart) => ({
+    type:ORDER_ITEM,
+    payload:cart
+})
+
  

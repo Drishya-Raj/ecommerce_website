@@ -21,34 +21,34 @@ export const checklist = [
         text: ' Some great feature name here'
     }
 ]
-export   const aside = [
+export const aside = [
     {
-        id:1,
+        id: 1,
         image: images?.coat,
         text: 'Men Blazers Sets Elegant Formal',
         price: '$7.00 - $99.50'
     },
     {
-        id:2,
+        id: 2,
         image: images?.tshirt,
         text: 'Men Shirt Sleeve Polo Contrast',
         price: '$7.00 - $99.50'
 
     },
     {
-        id:3,
+        id: 3,
         image: images?.suite,
         text: 'Apple Watch Series Space Gray',
         price: '$7.00 - $99.50'
     },
     {
-        id:4,
+        id: 4,
         image: images?.blue,
         text: 'Basketball Crew Socks Long Stuff',
         price: '$7.00 - $99.50'
     },
     {
-        id:5,
+        id: 5,
         image: images?.bag,
         text: 'New Summer Mens castrol T-Shirts',
         price: '$7.00 - $99.50'
@@ -111,7 +111,7 @@ export const states = [
 
     {
         id: 5,
-        state:'Arunachal Pradesh'
+        state: 'Arunachal Pradesh'
     },
     {
         id: 6,
@@ -194,7 +194,7 @@ export
             image: images?.tshirt,
             price: '$10.30',
             text: 'T-shirts with multiple colors, for men'
-           , link: '/productDetails'
+            , link: '/productDetails'
         },
         {
             id: 2,
@@ -260,6 +260,50 @@ export
             link: '/productDetails'
         }
     ]
+export const searchItems = [
+    {
+        id: 1,
+        items: "Mobile"
+    },
+    {
+        id: 2,
+        items: "Accessories"
+    },
+    {
+        id: 3,
+        items: "Camera"
+    },
+    {
+        id: 4,
+        items: "Jwellery"
+    },
+    {
+        id: 5,
+        items: "SmartPhone"
+    },
+    {
+        id: 6,
+        items: "Tablets"
+    },
+    {
+        id: 7,
+        items: "Laptops"
+    },
+    {
+        id: 8,
+        items: "Electronics"
+    },
+    {
+        id: 9,
+        items: "Bracelet"
+    },
+    {
+        id: 10,
+        items: "Ring"
+    }
+
+
+]
 export const service = [
     {
         id: 1,
@@ -489,6 +533,7 @@ export const imageItems = [
         image: images?.imagee
     },
     {
+        id:6,
         image: images?.image39
     }
 
@@ -570,7 +615,7 @@ export const priceDetails = [
         pieces: '100-700 pcs'
     },
     {
-        id: 1,
+        id: 3,
         price: '$78.00',
         pieces: '700+ pcs'
     },
@@ -817,7 +862,7 @@ export const supplier = [
         text: 'Verified Seller'
     },
     {
-        id: 1,
+        id: 3,
         image: images?.language,
         text: 'Worldwide Shipping'
     }
@@ -1064,6 +1109,10 @@ export const state = [
         state: "Maharastra"
     }
 ]
+export const categories = ['Tablets', 'Mobile', 'Laptops'];
+export const Mens = ["men's clothing", 'T-shirts', 'suites'];
+export const features = ['Ring', 'Bangles', 'Necklace', 'Bracelet',];
+export const conditions = ['Any', 'Refurbished', 'Brand new', 'Old items'];
 
 export const creditcard = [
     {

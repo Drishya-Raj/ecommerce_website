@@ -23,7 +23,7 @@ const Main = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchDataSuccess(data));
-  }, [dispatch])
+  }, [])
 
   return (
     <div className="mainSection">

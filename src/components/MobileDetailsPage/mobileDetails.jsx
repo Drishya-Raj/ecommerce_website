@@ -1,6 +1,5 @@
 import ListItem from './listItems'
 import Seven from "../HomePage/sectionSeven";
-import { Link, useNavigate } from 'react-router-dom';
 import * as images from '../images'
 import Breadcrumbs from "./BreadCrumb";
 import Navbar from "../navbar";
@@ -12,13 +11,13 @@ import ListViewContent from './listViewContent';
 import { useEffect, useState } from "react";
 import TextInput from '../textInput';
 
-
 const MobDetails = () => {
     const data = useSelector((state) => state.data);
     const filterData = useSelector((state) => state.filterData);
     const dispatch = useDispatch();
     const [isGridView, setIsGridView] = useState(true);
     const [filteredItems, setFilteredItems] = useState(data);
+    const [cart,setCart] = useState()
 
     useEffect(() => {
         dispatch(fetchDataSuccess(data));
@@ -32,7 +31,7 @@ const MobDetails = () => {
 
     return (
         <div className="mobDetails">
-            <Navbar />
+            <Navbar search={true} />
             <NavItem />
             <div className="navbar3">
                 <Breadcrumbs />
@@ -58,12 +57,10 @@ const MobDetails = () => {
                     </div>
                     {isGridView ? (
                         <div className="productCart">
-
                             <ul>
-                                {filteredItems?.map((item, index) => {
+                                {filteredItems?.map((item,index) => {
                                     return index <= 8 &&
                                         <ProductRenderItem
-                                            key={index}
                                             item={item}
                                             wishlist={images.fav1}
                                             favorite={images.favorite}

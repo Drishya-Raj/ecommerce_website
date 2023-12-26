@@ -12,7 +12,6 @@ import dot from '../assets/images/Dot.png';
 import dot2 from '../assets/images/Dot.png';
 import fav from '../assets/images/favorite_border.png';
 import user from '../assets/images/user.png';
-
 import tshirts from '../assets/images/image 34.png';
 import image35 from '../assets/images/image 35.png';
 import image36 from '../assets/images/image 36.png';

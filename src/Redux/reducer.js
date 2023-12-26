@@ -1,4 +1,4 @@
-import { ADD_USER, ADD_EMAIL, ADD_PASSWORD, LOGIN_USER, ADD_TO_CART, FETCH_SUCCESS, TOTAL_SUM, FILTER_DATA } from './actionTypes'
+import { ADD_USER, ADD_EMAIL, ADD_PASSWORD, LOGIN_USER, ADD_TO_CART, FETCH_SUCCESS, TOTAL_SUM, FILTER_DATA, ORDER_ITEM } from './actionTypes'
 
 const initialState = {
     // username : ''
@@ -9,7 +9,9 @@ const initialState = {
     data: null,
     cartItems: [],
     total: 0,
-    filterData: []
+    filterData: [],
+    cart:[]
+
 };
 
 const Reducers = (state = initialState, action) => {
@@ -60,6 +62,11 @@ const Reducers = (state = initialState, action) => {
             return {
                 ...state,
                 filterData: action.payload
+            }
+        case ORDER_ITEM:
+            return {
+                ...state,
+                cart: action.payload
             }
 
         default:

@@ -30,17 +30,17 @@ function BillingDetails() {
     }
     const validateFirstName = () => {
         const usernameRegex = /^[a-zA-Z]+$/;
-        (!usernameRegex.test(firstname)) ? setFirstNameAlert('** Enter a valid username **') : setFirstNameAlert('');
+        (!usernameRegex.test(firstname)) ? setFirstNameAlert('Please Enter a valid username ') : setFirstNameAlert('');
 
     }
     const validateLastName = () => {
         const usernameRegex = /^[a-zA-Z]+$/;
-        (!usernameRegex.test(lastname)) ? setLastNameAlert('** Enter a valid username **') : setLastNameAlert('');
+        (!usernameRegex.test(lastname)) ? setLastNameAlert('Please Enter a valid username ') : setLastNameAlert('');
 
     }
     const validateEmail = () => {
         let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        (!emailPattern.test(email)) ? setEmailAlert('** Enter a valid email id **') : setEmailAlert('');
+        (!emailPattern.test(email)) ? setEmailAlert('Please Enter a valid email id **') : setEmailAlert('');
     }
 
     const validatePincode = () => {

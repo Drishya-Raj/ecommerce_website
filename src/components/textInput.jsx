@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextInput = ({type, onChange ,placeholder,value,icon,checked, className,onInput,onBlur, onClick}) => {
+const TextInput = ({type, onChange ,placeholder,value,icon,checked,min,max,style, className,onInput,onBlur, onClick}) => {
 
     return (
         <div className="textInput">
@@ -17,6 +17,9 @@ const TextInput = ({type, onChange ,placeholder,value,icon,checked, className,on
                     icon={icon}
                     onBlur={onBlur}
                     checked = {checked}
+                    min={min}
+                    max={max}
+                    style={style}
                 />
                 
             </p>
