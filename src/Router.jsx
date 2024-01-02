@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes, Navigate, } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { createContext } from 'react';
-import {Main,ProductDetails,MobDetails,MyCart,SignIn,SignUp,Footer,Notfound,Hamburger,Payment,LoginPage} from './assets/files/files'
+import {Main,ProductDetails,MobDetails,MyCart,SignIn,SignUp,Footer,Notfound,Hamburger,Payment,LoginPage, ListItem} from './assets/files/files'
 
 export const cartContext = createContext();
 
@@ -10,6 +10,7 @@ const Router = () => {
     const isAuthenticated = useSelector((state) => state.isAuthenticated);
     const [addedItems, setAddedItems] = useState([]);
     const [productId, setProductId] = useState('');
+    
     return (
         <cartContext.Provider value={{ addedItems, setAddedItems ,productId,setProductId}}>
             <BrowserRouter >
@@ -33,6 +34,7 @@ const Router = () => {
                     <Route path='/' element={<SignUp />} />
                     <Route path='/404' element={<Notfound />} />
                     <Route path="/payment" element={<Payment />} />
+                    <Route path='/listItem' element={<ListItem />} />
                 </Routes>
                 <Footer />
             </BrowserRouter>

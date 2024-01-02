@@ -11,57 +11,32 @@ function Hamburger() {
         location.pathname !== '/' &&
         !['/signIn', '/signUp'].includes(location.pathname);
 
-    return showHamburger? (
+    return showHamburger && 
         <div className='hamburger'>
         <img src={images.logo} alt="images" style={{position:'absolute', left:'30px' , paddingTop:'10px' }}/>
             <input type="checkbox" id="check" />
             {open ?
-                (
-                <div className='hamburgercontent'>
-                     
+                (<div className='hamburgercontent'>
                     <div className='top'>
                         <img src={images?.profile} alt="user" />
-                        <Link to="/signUp">
-                            <h3>Sign In | Register</h3>
-                        </Link>
-
+                            <h3 onClick={"/signUp"}>Sign In | Register</h3>
                     </div>
                     <div className='middle'>
-                        <Link to="/home">
-                            <p>
+                            <p onClick={()=>navigate("/home")}>
                                 <i className="fa-solid fa-house"></i>
                                 Home
                             </p>
-                        </Link>
-                        <p onClick={()=>navigate('/listItems')}>
-                            <i className="fa-solid fa-bars"></i>
-                            categories 
-                        </p>
-
-                        <p>
-                            <i className="fa-sharp fa-regular fa-heart"></i>
-                            Favorites
-                        </p>
-                        <Link to='/myCart'>
-                        <p>
+                        <p><i className="fa-solid fa-bars"></i>Categories   </p>
+                        <p><i className="fa-sharp fa-regular fa-heart"></i> Favorites</p>
+                        <p onClick={()=>navigate('/myCart')}>
                             <i className="fa-solid fa-cart-shopping"></i>
                             Orders
                         </p>
-                        </Link >
                     </div>
                     <div className='bottom'>
-                        <p>
-                            <i className="fa-solid fa-globe"></i>
-                            English | USD
-                        </p>
-                        <p>
-                            <i className="fa-solid fa-headphones-simple"></i>
-                            Contact US
-                        </p>
-                        <p>
-                            <i className="fa-solid fa-city"></i>
-                            About
-                        </p>
+                        <p> <i className="fa-solid fa-globe"></i> English | USD </p>
+                        <p><i className="fa-solid fa-headphones-simple"></i>Contact US </p>
+                        <p><i className="fa-solid fa-city"></i> About</p>
                     </div>
                     <p className='last'>User Agreement</p>
                     <p className='last'>Partnership</p>
@@ -74,7 +49,7 @@ function Hamburger() {
                     <i className='fas fa-bars'></i>
                 </label>)}
         </div>
-        ):null;
+        
 }
 
 export default Hamburger;

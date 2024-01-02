@@ -89,10 +89,8 @@ const RegisterForm = ({ type, onSuccess }) => {
                 userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
                 dispatch(loginUser({ isAuthenticated: true }));
-                // localStorage.setItem(isAuthenticated, JSON.stringify(isAuthenticated));
             }
             dispatch(loginUser({ isAuthenticated: true }));
-            // localStorage.setItem(isAuthenticated, JSON.stringify(isAuthenticated));
             setShowAlert(false);
             onSuccess && onSuccess();
         }
@@ -148,35 +146,35 @@ const RegisterForm = ({ type, onSuccess }) => {
             <form>
                 <h2>{type === 'signIn' ? "Let's Get Started, Login here !" : 'Register Now'}</h2>
                 <br />
-                {textiInputs.map((item) => (
-                    <ul key={item.id}>
+                {textiInputs?.map((item) => (
+                    <ul key={item?.id}>
                         <div className="flex">
-                            <label htmlFor={item.label}>{item.label}</label>
-                            {item?.visible && <img src={item.visible} alt="image" width="20px" onClick={toggleVisibility} />}
+                            <label htmlFor={item?.label}>{item?.label}</label>
+                            {item?.visible && <img src={item?.visible} alt="image" width="20px" onClick={toggleVisibility} />}
                         </div>
                         <TextInput
-                            type={item.type}
-                            placeholder={item.placeholder}
-                            className={item.className}
-                            onChange={item.onChange}
-                            onInput={item.onInput}
-                            checked={item.checked}
+                            type={item?.type}
+                            placeholder={item?.placeholder}
+                            className={item?.className}
+                            onChange={item?.onChange}
+                            onInput={item?.onInput}
+                            checked={item?.checked}
                         />
-                        {item?.value ? (<><span className="error" style={{ color: item.errormsg ? 'red' : 'green', position: 'absolute' }}>
+                        {item?.value ? (<span className="error" style={{ color: item.errormsg ? 'red' : 'green', position: 'absolute' }}>
                             {item?.errormsg}
                         </span>
-                        </>) : null}
+                        ) : null}
                         <br />
                     </ul>
                 ))}
                 {type == 'signUp' ?(<Button value="Sign Up" className="submit" onClick={handleClick} />) : (<Button value="Login" className="submit" onClick={handleClick} />)}
                 {type === "signUp" ?
                     (<>
-                        <h4>Already have an account ?</h4><br />
+                        <p>Already have an account ?</p><br />
                         <Button value="Sign In" className="submit" onClick={() => navigate('/signIn')} />
                     </>
                     ) : (
-                        <><p>Not having an account ?</p>
+                        <><p>Not having an account ?</p><br />
                             <Button value="Sign Up" className="submit" onClick={() => navigate('/signUp')} />
                         </>)}
             </form>

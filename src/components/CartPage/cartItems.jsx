@@ -46,7 +46,7 @@ const CartItems = () => {
                                                     <option value="5">5</option>
                                                 </select>
                                             </label>
-                                            <p>{price}</p>
+                                            <p>Price: $ {price}</p>
                                         </div>
 
                                     </div>

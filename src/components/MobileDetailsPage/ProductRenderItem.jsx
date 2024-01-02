@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { cartContext } from "../../Router";
 
 const ProductRenderItem = ({ item, favorite, wishlist }) => {
-
     const [isFavorited, setIsFavorited] = useState(false);
     const {  setProductId } = useContext(cartContext);
     const navigate = useNavigate();
@@ -11,15 +10,12 @@ const ProductRenderItem = ({ item, favorite, wishlist }) => {
     const toggleFavorite = () => {
         setIsFavorited(!isFavorited);
     }
-   
     const navigateToProduct = () => {
         navigate('/productDetails')
         { id && setProductId(id) }
-     
     }
     const { image, title, category, price, id } = item;
     return (
-
         <li>
             <div className="imagecontainer">
                 <div onClick={navigateToProduct} >

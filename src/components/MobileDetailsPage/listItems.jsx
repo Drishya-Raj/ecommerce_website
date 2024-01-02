@@ -5,23 +5,19 @@ import Button from '../button';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilterData } from '../../Redux/action';
 import { categories, Mens, features, conditions } from '../constants/array';
-import EmptyCart from '../CartPage/EmptyCart';
 
 const ListItem = () => {
     const data = useSelector(state => state.data);
     const [minimun, setMinimum] = useState(15);
     const [maximum, setMaximum] = useState(180);
     const [filter, setFilter] = useState(data);
-
-    let filterData = data;
-
     const dispatch = useDispatch();
+    let filterData = data;
     useEffect(() => {
         dispatch(setFilterData(filterData))
     }, [dispatch]);
 
     const filterProduct = (cat) => {
-    
         filterData = data.filter((item) => (item.category === cat));
         setFilter(filterData);
         dispatch(setFilterData(filterData));

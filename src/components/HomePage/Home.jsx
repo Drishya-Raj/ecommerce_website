@@ -5,7 +5,6 @@ import Button from "../button";
 import { flag, itemImages } from "../constants/array";
 import TextInput from "../textInput";
 import { Link } from 'react-router-dom';
-import { deals } from "../constants/array";
 import * as images from '../images';
 import { sidebarList } from "../constants/array";
 import { timer } from "../constants/array";
@@ -119,7 +118,7 @@ const Main = () => {
         <ul>
           {data?.map((item) => {
             const { id, image, price, title } = item;
-            return (<Link key={id} to='/productDetails'>
+            return (<Link key={id} to='/mobdetails'>
               <Card image={image} price={price} title={title} />
             </Link>)
           })}

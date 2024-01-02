@@ -1,15 +1,11 @@
 import ListItem from './listItems'
-import Seven from "../HomePage/sectionSeven";
 import * as images from '../images'
-import Breadcrumbs from "./BreadCrumb";
-import Navbar from "../navbar";
-import NavItem from "../navItems";
 import { useDispatch, useSelector } from "react-redux";
 import ProductRenderItem from './ProductRenderItem';
 import { fetchDataSuccess, setFilterData } from "../../Redux/action";
 import ListViewContent from './listViewContent';
 import { useEffect, useState } from "react";
-import TextInput from '../textInput';
+import {Seven, Breadcrumbs,TextInput,Navbar,NavItem} from '../../assets/files/files'
 
 const MobDetails = () => {
     const data = useSelector((state) => state.data);
@@ -31,7 +27,7 @@ const MobDetails = () => {
 
     return (
         <div className="mobDetails">
-            <Navbar search={true} />
+            <Navbar/>
             <NavItem />
             <div className="navbar3">
                 <Breadcrumbs />
@@ -75,7 +71,6 @@ const MobDetails = () => {
                                     {filteredItems?.map((item, index) => {
                                         return index > 0 && index < 5 && (
                                             <ListViewContent
-                                                key={index}
                                                 item={item}
                                                 wishlist={images.favorite}
                                                 favorite={images.fav1}

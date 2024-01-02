@@ -40,7 +40,8 @@ const MyCart = () => {
             <h2>Saved for Later</h2><br/>
                 <ul>
                     {cartItems.map((item, index) => {
-                        const { id, image, price, title, category, button } = item;
+                        const { id, image, price, title, category } = item;
+                         const buttonText = addedItems.some((addedItem) => addedItem.id === id) ? 'Added' : 'Move to cart';
                         return (
                             <li key={id}>
                                 <div className='imgcontainer'>
@@ -51,7 +52,7 @@ const MyCart = () => {
                                     <p>{title}</p>
                                     <p>{category}</p>
                                     <button className="cartbutton" onClick={() => addToCart(index, id)}>
-                                        <i class="fa-solid fa-cart-shopping"></i>Move to cart
+                                        <i class="fa-solid fa-cart-shopping"></i>{buttonText}
                                     </button>
                                 </div>
                             </li>
